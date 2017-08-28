@@ -1,0 +1,15 @@
+-e - clean: ['~']
+
+- link:
+    ~/.profile: profile
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
+
+
+-e - clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+
+

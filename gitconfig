@@ -1,0 +1,12 @@
+[user]
+	name = rodrigoibarra
+	mail = hola@rodrigo-ibarra.com
+	[color]
+	ui = true
+	[alias]
+	st = status
+	chk = checkout
+	br = branch
+	aa = add --all
+	[core]
+	excludesfile = ~/.gitignore
