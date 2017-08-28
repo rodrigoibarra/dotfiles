@@ -1,4 +1,4 @@
--e - clean: ['~']
+- clean: ['~']
 
 - link:
     ~/.profile: profile
@@ -7,9 +7,10 @@
     ~/.gitconfig: gitconfig
 
 
--e - clean: ['~']
+- clean: ['~']
 
 - link:
     ~/.gitconfig: gitconfig
-
-
+    ~/.gitignore_global: gitignore_global
+    ~/.atom:
+    ~/.oh-my-git:
