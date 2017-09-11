@@ -12,13 +12,3 @@ cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-
-
-# Install brew with packages & casks, composer and yarn global packages
-. "$BASEDIR/install/brew.sh"
-
-# Install oh my zsh
-. "$BASEDIR/install/oh-my-zsh.sh"
-
-# Setup macos defaults
-. "$BASEDIR/macos/defaults.sh"
