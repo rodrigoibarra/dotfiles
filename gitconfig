@@ -1,6 +1,8 @@
 [user]
+	email = hola@rodrigo-ibarra.com
 	name = rodrigoibarra
-	mail = hola@rodrigo-ibarra.com
+[alias]
+	update = !git pull && git submodule update --init --recursive
 	[color]
 	ui = true
 	[alias]
