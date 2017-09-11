@@ -1,15 +1,20 @@
 "*":
   core:
+    openEmptyEditorOnStart: false
     telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
-      "duotone-dark-syntax"
+      "oceanic-next"
     ]
   editor:
+    backUpBeforeSaving: true
+    fontFamily: " Operator Mono"
     invisibles: {}
+    showIndentGuide: true
     softWrap: true
+    softWrapAtPreferredLineLength: true
   "exception-reporting":
-    userId: "eaa7ac53-fe38-bb78-a380-7493762501f8"
+    userId: "648dd73b-b903-8c80-91e6-bb7b58fd9e4a"
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
