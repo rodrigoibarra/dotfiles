@@ -10,3 +10,13 @@ Right now, i'ts got configuration for:
 - Atom
 - Oh-my-git (this is a oh-my-zsh thing with git...)
 - git
+- iTerm2
+
+Configuration for Mac defaults and an install folder with a script to initialize a new mac and set it up for web dev
+
+
+## Notes
+
+for Oh my git after a clean installation... go to
+
+https://github.com/arialdomartini/oh-my-git

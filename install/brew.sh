@@ -50,7 +50,6 @@ brew cask install --appdir="/Applications" the-unarchiver
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" fork
 brew cask install --appdir="/Applications" sketch
-brew cask install --appdir="/Applications" mamp
 brew cask install iina
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
