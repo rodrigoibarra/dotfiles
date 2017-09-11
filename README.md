@@ -20,3 +20,23 @@ Configuration for Mac defaults and an install folder with a script to initialize
 for Oh my git after a clean installation... go to
 
 https://github.com/arialdomartini/oh-my-git
+
+
+## Install
+
+On fresh installation of MacOS:
+´´´
+sudo softwareupdate -i -a
+xcode-select --install
+´´´
+
+Clone and install dotfiles:
+´´´
+git clone https://github.com/rodrigoibarra/puntos.git
+cd ~/puntos
+chmod +wx fresh.sh
+./fresh.sh
+´´´
+To update a system...
+
+run ´sh install.sh´
