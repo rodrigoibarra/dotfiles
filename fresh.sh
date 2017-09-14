@@ -14,4 +14,8 @@ echo "now configuration"
 
 sh "${BASEDIR}"/MacOS/defaults.sh
 
+echo "now Dock"
+
+sh "${BASEDIR}"/MacOS/dock.sh
+
 echo "listo"

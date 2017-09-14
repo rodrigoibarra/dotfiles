@@ -68,32 +68,6 @@ echo "Success! Brew additional applications are installed."
 
 echo "Installing everything else"
 
-# set up ruby
-
-
-# shellcheck disable=SC1090
-source "$HOME/.asdf/asdf.sh"
-install_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
-install_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
-
-install_asdf_language() {
-  local language="$1"
-  local version
-  version="$(asdf list-all "$language" | tail -1)"
-
-  if ! asdf list "$language" | grep -Fq "$version"; then
-    asdf install "$language" "$version"
-    asdf global "$language" "$version"
-  fi
-}
-
-fancy_echo "Installing latest Ruby..."
-install_asdf_language "ruby"
-gem update --system
-gem_install_or_update "bundler"
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
-
 # This installs Jekyll
 gem install jekyll
 
