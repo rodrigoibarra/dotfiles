@@ -68,11 +68,14 @@ echo "Success! Brew additional applications are installed."
 
 echo "Installing everything else"
 
-# This installs Jekyll
-gem install jekyll
+# All gems
+gem install jekyll 
+gem install compass
+gem install thor
+gem install stringerx
+
 
 # Now Grunt
-
 npm install -g grunt-cli
 
 # Install oh my zsh
