@@ -1,3 +1,14 @@
 [user]
-	name = rodrigoibarra
 	email = hola@rodrigo-ibarra.com
+	name = rodrigoibarra
+[alias]
+	update = !git pull && git submodule update --init --recursive
+	[color]
+	ui = true
+	[alias]
+	st = status
+	chk = checkout
+	br = branch
+	aa = add --all
+	[core]
+	excludesfile = ~/.gitignore

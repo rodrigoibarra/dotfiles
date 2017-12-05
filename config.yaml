@@ -9,9 +9,6 @@ dotfiles:
   d_iterm2:
     dst: iTerm2
     src: iTerm2
-  d_oh-my-zsh:
-    dst: ~/.oh-my-zsh
-    src: oh-my-zsh
   f_antigen.zsh:
     dst: ~/.oh-my-git/antigen.zsh
     src: oh-my-git/antigen.zsh
@@ -58,7 +55,6 @@ profiles:
     - f_gitconfig
     - f_gitignore_global
     - f_zshrc
-    - d_oh-my-zsh
     - f_config.cson
     - f_packages.list
     - f_styles.less
