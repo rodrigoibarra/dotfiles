@@ -46,6 +46,22 @@ dotfiles:
     dst: ~/.zshrc
     src: zshrc
 profiles:
+  HammerOfDawn:
+    dotfiles:
+    - d_atom
+    - f_profile
+    - f_gitconfig
+    - f_gitignore_global
+    - f_zshrc
+    - f_config.cson
+    - f_packages.list
+    - f_styles.less
+    - f_antigen.zsh
+    - f_base.sh
+    - f_prompt.sh
+    - d_iterm2
+    - f_bashrc
+    - f_bash_profile
   Rodrigos-Air:
     dotfiles:
     - d_atom
