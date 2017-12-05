@@ -3,18 +3,12 @@ config:
   create: true
   dotpath: dotfiles
 dotfiles:
-  d_antigen:
-    dst: ~/.antigen
-    src: antigen
   d_atom:
     dst: ~/.atom
     src: atom
   d_iterm2:
     dst: iTerm2
     src: iTerm2
-  d_oh-my-git:
-    dst: ~/.oh-my-git
-    src: oh-my-git
   d_oh-my-zsh:
     dst: ~/.oh-my-zsh
     src: oh-my-zsh
@@ -57,7 +51,6 @@ dotfiles:
 profiles:
   Rodrigos-Air:
     dotfiles:
-    - d_antigen
     - d_atom
     - f_bashrc
     - f_bash_profile
@@ -65,7 +58,6 @@ profiles:
     - f_gitconfig
     - f_gitignore_global
     - f_zshrc
-    - d_oh-my-git
     - d_oh-my-zsh
     - f_config.cson
     - f_packages.list
