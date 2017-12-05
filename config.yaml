@@ -1,0 +1,76 @@
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+dotfiles:
+  d_antigen:
+    dst: ~/.antigen
+    src: antigen
+  d_atom:
+    dst: ~/.atom
+    src: atom
+  d_iterm2:
+    dst: iTerm2
+    src: iTerm2
+  d_oh-my-git:
+    dst: ~/.oh-my-git
+    src: oh-my-git
+  d_oh-my-zsh:
+    dst: ~/.oh-my-zsh
+    src: oh-my-zsh
+  f_antigen.zsh:
+    dst: ~/.oh-my-git/antigen.zsh
+    src: oh-my-git/antigen.zsh
+  f_base.sh:
+    dst: ~/.oh-my-git/base.sh
+    src: oh-my-git/base.sh
+  f_bash_profile:
+    dst: ~/.bash_profile
+    src: bash_profile
+  f_bashrc:
+    dst: ~/.bashrc
+    src: bashrc
+  f_config.cson:
+    dst: ~/.atom/config.cson
+    src: atom/config.cson
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: gitconfig
+  f_gitignore_global:
+    dst: ~/.gitignore_global
+    src: gitignore_global
+  f_packages.list:
+    dst: ~/.atom/packages.list
+    src: atom/packages.list
+  f_profile:
+    dst: ~/.profile
+    src: profile
+  f_prompt.sh:
+    dst: ~/.oh-my-git/prompt.sh
+    src: oh-my-git/prompt.sh
+  f_styles.less:
+    dst: ~/.atom/styles.less
+    src: atom/styles.less
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
+profiles:
+  Rodrigos-Air:
+    dotfiles:
+    - d_antigen
+    - d_atom
+    - f_bashrc
+    - f_bash_profile
+    - f_profile
+    - f_gitconfig
+    - f_gitignore_global
+    - f_zshrc
+    - d_oh-my-git
+    - d_oh-my-zsh
+    - f_config.cson
+    - f_packages.list
+    - f_styles.less
+    - f_antigen.zsh
+    - f_base.sh
+    - f_prompt.sh
+    - d_iterm2

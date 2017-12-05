@@ -44,7 +44,7 @@ echoerrnocolor() {
 	fi
 }
 
-echoerr() { 
+echoerr() {
 	if [ $# -gt 1 ]; then
 		color=$1
 		shift
