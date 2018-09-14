@@ -2,20 +2,17 @@
 
 set -e
 
+
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 
 sh "${BASEDIR}"/install/install.sh
 
-echo "install done"
+echo "So... tha basics are installed, we could stop here but naaah"
 
-echo "now configuration"
+echo "Let's configure some stuff"
 
 sh "${BASEDIR}"/MacOS/defaults.sh
 
-echo "now Dock"
-
-sh "${BASEDIR}"/MacOS/dock.sh
-
-echo "listo"
+echo "Aight... we Gucci!"

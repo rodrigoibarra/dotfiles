@@ -11,12 +11,9 @@ brew upgrade
 # Install packages
 brew install dockutil #this handles dock icons
 brew install openssl
-brew install nmap
 brew install git
 brew install node
 brew install ruby
-brew install reattach-to-user-namespace
-brew install hub
 brew install python3
 brew install thefuck
 brew install wget
@@ -29,7 +26,7 @@ brew install wifi-password
 sleep 1
 
 # ...and then.
-echo "Success! Basic brew packages are installed."
+echo "Yassss! Basic brew packages are installed."
 
 # Cask
 brew tap caskroom/cask
@@ -40,46 +37,40 @@ brew install mas
 
 # Install cask packages
 
+echo "Let's go get some more stuff."
+
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" google-backup-and-sync
 brew cask install --appdir="/Applications" slack
-brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" phpstorm
+brew cask install --appdir="/Applications" visual-studio-code
 brew cask install --appdir="/Applications" sequel-pro
 brew cask install --appdir="/Applications" appcleaner
-brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" the-unarchiver
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" fork
 brew cask install --appdir="/Applications" sketch
 brew cask install --appdir="/Applications" openemu
 brew cask install --appdir="/Applications" firefox
-brew cask install iina
-
-# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
 
 # Wait a bit before moving on...
 sleep 1
 
 # ...and then.
-echo "Success! Brew additional applications are installed."
+echo "well... more stuff got installed"
 
-echo "Installing everything else"
+echo "now some gems..."
 
 # All gems
-gem install jekyll 
+gem install jekyll
 gem install compass
 gem install thor
 gem install stringerx
 
-
+echo "now some grunt... why do we still use grunt????"
 # Now Grunt
 npm install -g grunt-cli
 
-# Install oh my zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+echo "I'm not ashamed of using grunt... and neither sould you, use what works"
 
 # Make zsh default shell
 sudo chsh -s $(which zsh)
