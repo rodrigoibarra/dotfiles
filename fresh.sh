@@ -15,4 +15,9 @@ echo "Let's configure some stuff"
 
 sh "${BASEDIR}"/MacOS/defaults.sh
 
+
+echo "wait, before we go... lets link all the dotfiles again..."
+
+sh "${BASEDIR}"/cleanup.sh
+
 echo "Aight... we Gucci!"
