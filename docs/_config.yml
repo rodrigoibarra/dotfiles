@@ -1,0 +1,15 @@
+title: BRWR
+timezone: UTC
+collections:
+  posts:
+    title: Docs
+    output: true
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+description: .BRWR is a dotfile collection by Rodrigo Ibarra
+permalink: pretty
+sass:
+  sass_dir: _scss
+  style: compressed
