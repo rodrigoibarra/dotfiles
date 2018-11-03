@@ -61,10 +61,9 @@ echo "well... more stuff got installed"
 echo "now some gems..."
 
 # All gems
+gem install bundler
 gem install jekyll
-gem install compass
-gem install thor
-gem install stringerx
+
 
 echo "now some grunt... why do we still use grunt????"
 # Now Grunt
