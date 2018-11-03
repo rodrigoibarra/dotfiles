@@ -1,0 +1,114 @@
+---
+---
+
+html {
+    box-sizing: border-box;
+
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+$black:#272727;
+$green: #00b0a0;
+$grey: #edf8f6;
+$red: #cc5a71;
+$purple: #67597a;
+
+
+body{
+    margin: 0;
+    background-color:$black;
+    color:whitesmoke;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 18px;
+}
+
+h1, h2, h3{
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 400;
+}
+
+header{
+    color:whitesmoke;
+    background-color: $black;
+    height: 55vh;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+pre{
+    background-color: #193549;
+    font-family: 'PT Mono', monospace;
+}
+
+em{
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-size: 1.3rem;
+}
+
+.mainBody{
+    background-color: whitesmoke;
+}
+.logo{
+    font-size: 3rem;
+
+    span{
+        text-align:center;
+        font-size: 1.2rem;
+        display: block;
+        font-family: 'PT Sans Narrow', sans-serif;
+    }
+}
+
+.coffeLabel{
+    width: 60%;
+    margin: 0 auto;
+    border: 5px solid whitesmoke;
+    padding:0px;
+    color:$black;
+    outline: 3px solid $black;
+    outline-offset: -13px;
+    position: relative;
+    bottom:10vh;
+    display: flex;
+
+
+}
+
+.labelCard{
+    background-color: $green;
+    padding:15px;
+    flex-grow:3;
+
+    h2{
+        margin-top:0;
+    }
+}
+
+.labelBranding{
+    padding:15px;
+    flex-grow:1;
+    background-color: #C4C4C4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+        height: 80%;
+    }
+
+    h2{
+        margin:0;
+        color:$black;
+    }
+}
+
+@import "monokai";
