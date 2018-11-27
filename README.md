@@ -1,6 +1,6 @@
-# BRWR
+# DRIPR
 
-.Brwr is the recipe for my MacOS environment, what I mean by that is, I can take a new Mac computer, run brew.sh and it will install most of the stuff I need, like npm and git and node, along with a bunch of apps that I use daily. After the brew is done, It will link all my .dotfiles to the new instances so I’ll have all my personal configuratións with minimal effort.
+.Dripr is the recipe for my MacOS environment, what I mean by that is, I can take a new Mac computer, run brew.sh and it will install most of the stuff I need, like npm and git and node, along with a bunch of apps that I use daily. After the brew is done, It will link all my .dotfiles to the new instances so I’ll have all my personal configuratións with minimal effort.
 
 
 ## What's in this?
