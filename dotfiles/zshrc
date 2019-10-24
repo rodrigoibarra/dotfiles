@@ -47,3 +47,4 @@ source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+eval $(thefuck --alias)
