@@ -34,7 +34,7 @@ module.exports = {
       cursorBlink: false,
 
       // color of the text
-      foregroundColor: '#fff',
+      foregroundColor: '#FFFFFF',
 
       // terminal background color
       // opacity is only supported on macOS
@@ -44,7 +44,7 @@ module.exports = {
       selectionColor: 'rgba(248,28,229,0.3)',
 
       // border color (window, tabs)
-      borderColor: '#00B0A0',
+      borderColor: '#03C5FF',
 
       // custom CSS to embed in the main window
       css: '',
@@ -69,8 +69,8 @@ module.exports = {
       // an array here instead of a color map object
       colors: {
         black : '#000000',
-        red : '#cc5a71',
-        green : '#00b0a0',
+        red : '#FF8678',
+        green : '#77BCB1',
         yellow : '#F4B800',
         blue : '#1478DB',
         magenta : '#ff2c70',
