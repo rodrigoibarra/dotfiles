@@ -14,7 +14,6 @@ brew install git
 brew install node
 brew install ruby
 brew install thefuck
-brew install wget
 brew install zsh
 brew install zsh-completions
 brew install antigen
@@ -41,7 +40,6 @@ brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" visual-studio-code
 brew cask install --appdir="/Applications" sequel-pro
-brew cask install --appdir="/Applications" appcleaner
 brew cask install --appdir="/Applications" the-unarchiver
 brew cask install --appdir="/Applications" hyper
 brew cask install --appdir="/Applications" sketch
@@ -59,7 +57,6 @@ echo "now some gems..."
 # All gems
 gem install bundler
 gem install jekyll
-
 npm install vue
 
 echo "now some grunt... why do we still use grunt????"
