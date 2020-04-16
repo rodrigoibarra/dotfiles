@@ -25,7 +25,7 @@ echo "besaKokosa brought all the brews from the homebrew"
 
 location=--appdir="/Applications"
 for i in $(cat beans/gesha);
-    do brew cask install "$i";
+    do brew cask install $location "$i";
 done
 
 echo "Gesha brought all the apps from the web"
