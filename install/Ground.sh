@@ -1,69 +1,54 @@
 # This script installs homebrew for app installation
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+nvm install node
+nvm use node
+nvm run node --version
+
 brew tap Goles/battery
 brew tap mongodb/brew
 brew update
 brew upgrade
 
-# Install packages
-
-brew install openssl
-brew install mongodb-community
-brew install git
-brew install node
-brew install ruby
-brew install thefuck
-brew install zsh
-brew install zsh-completions
-brew install antigen
-brew install unrar
-brew install wifi-password
-
 # Wait a bit before moving on...
 sleep 1
 
-# ...and then.
-echo "Yassss! Basic brew packages are installed."
+echo "Let's go get some beans to grind."
+for i in $(cat beans/bensaKokosa);
+    do brew install "$i";
+done
 
-# Cask
-brew tap caskroom/cask
-brew install brew-cask
-brew tap caskroom/versions
-brew install mas
+echo "besaKokosa brought all the brews from the homebrew"
 
-# Install cask packages
+location=--appdir="/Applications"
+for i in $(cat beans/gesha);
+    do brew cask install "$i";
+done
 
-echo "Let's go get some more stuff."
+echo "Gesha brought all the apps from the web"
 
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" visual-studio-code
-brew cask install --appdir="/Applications" sequel-pro
-brew cask install --appdir="/Applications" the-unarchiver
-brew cask install --appdir="/Applications" hyper
-brew cask install --appdir="/Applications" sketch
-brew cask install --appdir="/Applications" openemu
-brew cask install --appdir="/Applications" firefox
+for i in $(cat beans/typica);
+    do mas install "$i";
+done
 
-# Wait a bit before moving on...
+echo "Typica brought all the apps AppStore"
+
 sleep 1
 
-# ...and then.
-echo "well... more stuff got installed"
+for i in $(cat beans/estelar);
+    do gem install "$i";
+done
 
-echo "now some gems..."
+for i in $(cat beans/laGruta);
+    do npm install "$i";
+done
 
-# All gems
-gem install bundler
-gem install jekyll
-npm install vue
+echo "Estelar and laGruta brought all the gems and npm packages"
 
-echo "now some grunt... why do we still use grunt????"
-# Now Grunt
-npm install -g grunt-cli
-
-echo "I'm not ashamed of using grunt... and neither sould you, use what works"
 
 # Make zsh default shell
 sudo chsh -s $(which zsh)
+
