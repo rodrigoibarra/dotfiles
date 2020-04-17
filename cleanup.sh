@@ -28,3 +28,4 @@ ln -s ${BASEDIR}/dotfiles/zshrc $HOME/.zshrc
 
 rm -rf $HOME/.hyper.js
 ln -s ${BASEDIR}/dotfiles/hyper.js $HOME/.hyper.js
+

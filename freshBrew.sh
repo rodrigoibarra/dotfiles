@@ -22,4 +22,5 @@ echo "wait, before we go... lets clean up and link all the dotfiles again..."
 
 sh "${BASEDIR}"/cleanup.sh
 
+sh "${BASEDIR}"/extra.sh
 echo "Aight... we Gucci!"
