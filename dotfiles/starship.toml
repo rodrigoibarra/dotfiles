@@ -1,0 +1,103 @@
+
+#catpuccin
+palette = "catppuccin_mocha"
+
+format = '''
+$directory$git_status$git_branch$fill$time
+$character
+'''
+
+[directory]
+read_only = " №"
+truncation_length = 5
+format = "(bold base)[$path ]($style)[$read_only]($read_only_style)"
+
+[fill]
+symbol = ' '
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "italic flamingo"
+time_format = '%R'
+utc_time_offset = '-6'
+
+[character]
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+
+[git_status]
+style = "bold teal"
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+style = "italic mauve"
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+disabled=true
+
+[nodejs]
+symbol = " "
+disabled=true
+
+[package]
+symbol = "󰏗 "
+disabled=true
+
+
+
+[os.symbols]
+Arch = " "
+CentOS = " "
+Debian = " "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Ubuntu = " "
+Unknown = " "
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
