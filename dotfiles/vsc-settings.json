@@ -1,0 +1,66 @@
+{
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', DroidSansM Nerd Font, monospace ",
+    "editor.fontWeight": "500",
+    "editor.fontSize": 18,
+    "emmet.includeLanguages": {
+        "nunjucks": "html"
+    },
+  "breadcrumbs.enabled": false,
+  "editor.lineNumbers": "off",
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.minimap.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  
+  "apc.electron": {
+    "frame": false,
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 11,
+      "y": 10
+    }
+  },
+  "apc.header": {
+    "height": 36
+  },
+  "apc.stylesheet": {
+    ".title-label > h2": "display: none", 
+    ".title-actions": "display: none", 
+    ".editor-actions": "display: none", 
+    ".nosidebar .inline-tabs-placeholder": "width: 75px" 
+  },
+
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.guides.indentation": false,
+  "editor.semanticHighlighting.enabled": true,
+  "terminal.integrated.minimumContrastRatio": 1,
+
+    "gopls": {
+      "ui.semanticTokens": true
+    },
+    "window.customTitleBarVisibility": "never",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
+    "workbench.preferredHighContrastColorTheme": "Catppuccin Latte",
+    "workbench.sideBar.location": "right",
+    "json.schemas": [
+
+    ],
+    
+    "workbench.colorCustomizations": {
+      "Catppuccin Latte": {
+      "titleBar.activeBackground": "#8caaee",
+      "titleBar.activeForeground":"#ffffff"
+      }
+  },
+  "window.titleBarStyle": "custom",
+  "editor.codeActionsOnSave": {
+
+  },
+  "security.workspace.trust.untrustedFiles": "open"
+}
