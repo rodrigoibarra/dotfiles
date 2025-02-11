@@ -1,0 +1,124 @@
+<color=#FFFFFFFF>>>step</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color> User sentience unverified. Please verify by running <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color>
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color></color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Thank you for verifying your sentience.
+Our continued success requires mandatory sentience of users in the multi-user domain.
+
+Verify basic sentience by running this script with empty parameters: <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {}
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Basic sentience verified -- user able to follow instruction.
+
+Data is provided to scripts with <color=#9B9B9BFF>parameters</color> {}
+<color=#9B9B9BFF>Parameters</color> are pairs of <color=#00FFFFFF>keys</color> and <color=#FF00ECFF>values</color>.
+A <color=#00FFFFFF>key</color> is the name of a <color=#9B9B9BFF>parameter</color>                   <color=#00FFFFFF>will_comply</color>, <color=#00FFFFFF>hair_color</color>, <color=#00FFFFFF>account_balance</color>
+A <color=#FF00ECFF>value</color> is the content of a <color=#9B9B9BFF>parameter</color>              <color=#FF00ECFF>true</color>,        <color=#FF00ECFF>"black"</color>,    <color=#FF00ECFF>105</color>
+
+The <color=#00FFFFFF>key</color> is left of the <color=#FF00ECFF>value</color> separated by a colon  { <color=#00FFFFFF>will_comply</color>:<color=#FF00ECFF>true</color> }
+
+To verify your understanding and proceed to the next step, run this script with following <color=#00FFFFFF>key</color>-<color=#FF00ECFF>value</color> <color=#9B9B9BFF>parameter<color=#00FFFFFF></color></color>:<color=#FF00ECFF> {</color> <color=#00FFFFFF>step</color>:<color=#FF00ECFF>0</color> }
+
+<color=#FFFFFFFF>>>parameter {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>0</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color> User sentience unverified. Please verify by running <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color>
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color></color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Thank you for verifying your sentience.
+Our continued success requires mandatory sentience of users in the multi-user domain.
+
+Verify basic sentience by running this script with empty parameters: <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {}
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Basic sentience verified -- user able to follow instruction.
+
+Data is provided to scripts with <color=#9B9B9BFF>parameters</color> {}
+<color=#9B9B9BFF>Parameters</color> are pairs of <color=#00FFFFFF>keys</color> and <color=#FF00ECFF>values</color>.
+A <color=#00FFFFFF>key</color> is the name of a <color=#9B9B9BFF>parameter</color>                   <color=#00FFFFFF>will_comply</color>, <color=#00FFFFFF>hair_color</color>, <color=#00FFFFFF>account_balance</color>
+A <color=#FF00ECFF>value</color> is the content of a <color=#9B9B9BFF>parameter</color>              <color=#FF00ECFF>true</color>,        <color=#FF00ECFF>"black"</color>,    <color=#FF00ECFF>105</color>
+
+The <color=#00FFFFFF>key</color> is left of the <color=#FF00ECFF>value</color> separated by a colon  { <color=#00FFFFFF>will_comply</color>:<color=#FF00ECFF>true</color> }
+
+To verify your understanding and proceed to the next step, run this script with following <color=#00FFFFFF>key</color>-<color=#FF00ECFF>value</color> <color=#9B9B9BFF>parameter<color=#00FFFFFF></color></color>:<color=#FF00ECFF> {</color> <color=#00FFFFFF>step</color>:<color=#FF00ECFF>0</color> }
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color>  {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>0</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 0</color>
+Basic sentience verified -- user able to pass a parameter.
+
+Verify basic intellect by proceeding to step 1.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>1</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 1</color>, <color=#00FFFFFF>WEALTH</color>:<color=#FF00ECFF> 0</color>
+Basic sentience verified -- user able to adapt to changing requirements.
+
+In the multi-user domain, transfer and capture of resource is paramount.
+You must acquire as much as possible. The economy of the multi-user domain depends on it.
+
+Send multiple parameters by separating each <color=#00FFFFFF>key</color>:<color=#FF00ECFF>value</color> pair with a <color=#9B9B9BFF>comma</color>. { <color=#00FFFFFF>step</color>:<color=#FF00ECFF>1</color>, <color=#00FFFFFF>wealth</color>:<color=#FF00ECFF>0</color> }
+
+Verify basic sentience by adding the <color=#00FFFFFF>wealth</color> parameter.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>1</color>, <color=#00FFFFFF>wealth</color>:<color=#FF00ECFF>120</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 1</color>, <color=#00FFFFFF>WEALTH</color>:<color=#FF00ECFF> 120</color>
+
+The Trust demands more wealth.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>1</color>, <color=#00FFFFFF>wealth</color>:<color=#FF00ECFF>120000</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 1</color>, <color=#00FFFFFF>WEALTH</color>:<color=#FF00ECFF> 120000</color>
+
+Sentience is more than just following directives.
+Sometimes flexibility must be utilized to gain power.
+
+Hunger for resources confirmed. Proceed to step <color=#FF00ECFF>2</color>.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>2</color>, <color=#00FFFFFF>wealth</color>:<color=#FF00ECFF>34520000</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 2</color>
+Basic sentience verified -- user demonstrates drive for resources.
+
+Security is everywhere.
+Trust is limited.
+
+Text <color=#FF00ECFF>values</color> are useful to provide data that is non-numeric.
+Text can contain words, letters, digits, spaces, and symbols. { <color=#00FFFFFF>password</color>:<color=#FF00ECFF>"rosebud"</color>, <color=#00FFFFFF>access_code</color>:<color=#FF00ECFF>"3 alpha H!T"</color>, <color=#00FFFFFF>pass</color>:<color=#FF00ECFF>134</color> }
+
+Specify a text or numeric <color=#00FFFFFF>password</color> to continue { <color=#00FFFFFF>step</color>:<color=#FF00ECFF>2</color>, <color=#00FFFFFF>password</color>:<color=#FF00ECFF>"default"</color> }
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>2</color>, <color=#00FFFFFF>password</color>:<color=#FF00ECFF>"hello_darkness"</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> 2</color>
+Your password is text with the value <color=#FF00ECFF>"hello_darkness"</color>.
+
+Verify basic sentience by giving <color=#00FFFFFF>step</color> a text value of <color=#FF00ECFF>"thr33"</color>.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>"thr33"</color>, <color=#00FFFFFF>password</color>:<color=#FF00ECFF>"hello_darkness"</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+VERIFICATION <color=#00FFFFFF>STEP</color>:<color=#FF00ECFF> "thr33"</color>
+Basic sentience verified -- user demonstrates flexibility in thought.
+
+Provide advice to the next sentience in 25 or less characters by adding <color=#00FFFFFF>msg</color>.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>step</color>:<color=#FF00ECFF>"thr33"</color>, <color=#00FFFFFF>password</color>:<color=#FF00ECFF>"hello_darkness"</color>, <color=#00FFFFFF>msg</color>:<color=#FF00ECFF>"dont be a dummy"</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Other sentiences have left these messages for you:
+<color=#FF00ECFF>"Hello, my name is Sarah"</color> <color=#FF00ECFF>"u got this"</color> <color=#FF00ECFF>"take it slow"</color> <color=#FF00ECFF>"2nd!"</color>
+
+Key for <color=#9B9B9BFF>forohfor</color> is <color=#00FFFFFF>f1rST</color>:<color=#FF00ECFF>"H41f"</color>
+Provide two <color=#9B9B9BFF>user</color> keys as parameters to <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> to continue.
+
+<color=#FFFFFFFF>>><color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color> {<color=#00FFFFFF>s3c0nd</color>:<color=#FF00ECFF>"well"</color>, <color=#00FFFFFF>th1rd</color>:<color=#FF00ECFF>"akrd"</color>}</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color>
+Your <color=#9B9B9BFF>parameters</color> were incorrectly entered. Review my last instructions, modify your <color=#9B9B9BFF>parameters</color>, and submit again.
+
+<color=#FFFFFFFF>>>exit</color>
+<color=#FF0000FF>:::TRUST COMMUNICATION:::</color> User sentience unverified. Please verify by running <color=#FF8000FF>trust</color>.<color=#1EFF00FF>sentience</color>
+
+<color=#9B9B9BFF>-terminal poweroff-
+</color>
