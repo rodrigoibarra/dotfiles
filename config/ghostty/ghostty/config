@@ -1,0 +1,8 @@
+theme = catppuccin-mocha
+
+font-family = OperatorMono
+font-size = 20
+macos-titlebar-style = hidden
+
+
+auto-update = check
