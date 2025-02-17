@@ -110,3 +110,5 @@ fi
 unset __conda_setup
 
 
+# Posting Cli
+. "$HOME/.local/bin/env"
