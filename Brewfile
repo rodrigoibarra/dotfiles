@@ -15,6 +15,9 @@ brew "openssl@3"
 brew "autojump"
 brew "automake"
 brew "bat"
+brew "bat-extras"
+brew "prettier"
+brew "yq"
 brew "python@3.12"
 brew "coreutils"
 brew "dfu-util"
@@ -57,3 +60,4 @@ cask "openemu", args: { appdir: "/Applications" }
 cask "rectangle"
 cask "transmit", args: { appdir: "/Applications" }
 cask "vlc", args: { appdir: "/Applications" }
+cask "tabtab"
