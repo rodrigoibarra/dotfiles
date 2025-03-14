@@ -112,3 +112,4 @@ unset __conda_setup
 
 # Posting Cli
 . "$HOME/.local/bin/env"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"

@@ -158,9 +158,11 @@ return {
 				lspconfig["emmet_ls"].setup({
 					capabilities = capabilities,
 					filetypes = {
+						"astro",
 						"html",
 						"typescriptreact",
 						"javascriptreact",
+						"vue",
 						"css",
 						"sass",
 						"scss",

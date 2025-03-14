@@ -3,6 +3,5 @@ theme = catppuccin-mocha
 font-family = OperatorMono
 font-size = 20
 macos-titlebar-style = hidden
-
-
+window-theme = system
 auto-update = check
