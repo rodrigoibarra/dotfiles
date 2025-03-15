@@ -51,7 +51,6 @@ brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazygit/lazygit"
 cask "alfred"
 cask "alt-tab"
-cask "dropbox", args: { appdir: "/Applications" }
 cask "firefox", args: { appdir: "/Applications" }
 cask "font-hack-nerd-font"
 cask "ghostty"
@@ -60,4 +59,3 @@ cask "openemu", args: { appdir: "/Applications" }
 cask "rectangle"
 cask "transmit", args: { appdir: "/Applications" }
 cask "vlc", args: { appdir: "/Applications" }
-cask "tabtab"
