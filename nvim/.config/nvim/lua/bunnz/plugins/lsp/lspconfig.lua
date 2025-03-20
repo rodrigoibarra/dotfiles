@@ -76,8 +76,8 @@ return {
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
-
+		end,
+      
 		local customizations = {
 			{ rule = "style/*", severity = "off", fixable = true },
 			{ rule = "format/*", severity = "off", fixable = true },
@@ -125,6 +125,7 @@ return {
 					command = "EslintFixAll",
 				})
 			end,
+
 			settings = {
 				-- Silent the stylistic rules in you IDE, but still auto fix them
 				rulesCustomizations = customizations,
