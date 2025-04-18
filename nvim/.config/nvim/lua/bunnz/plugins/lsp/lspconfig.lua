@@ -119,16 +119,17 @@ return {
 				"pcss",
 				"postcss",
 			},
+			settings = {
+				-- Silent the stylistic rules in you IDE, but still auto fix them
+				rulesCustomizations = customizations,
+			},
+
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
 					command = "EslintFixAll",
 				})
 			end,
-			settings = {
-				-- Silent the stylistic rules in you IDE, but still auto fix them
-				rulesCustomizations = customizations,
-			},
 		})
 
 		mason_lspconfig.setup_handlers({
