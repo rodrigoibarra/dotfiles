@@ -1,6 +1,5 @@
 return {
 	"neovim/nvim-lspconfig",
-	version = "*",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
@@ -126,7 +125,6 @@ return {
 					command = "EslintFixAll",
 				})
 			end,
-
 			settings = {
 				-- Silent the stylistic rules in you IDE, but still auto fix them
 				rulesCustomizations = customizations,
