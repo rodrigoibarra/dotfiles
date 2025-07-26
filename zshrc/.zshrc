@@ -15,13 +15,15 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+ plugins=(git zsh-autosuggestions)
+
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # Setup zsh-autosuggestions
-source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 # EZA config better ls
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
@@ -96,20 +98,5 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/home/username/miniconda/bin:$PATH"
 
-# Conda
-__conda_setup="$('/Users/rodrigoibarra/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/rodrigoibarra/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/rodrigoibarra/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/rodrigoibarra/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-
 # Posting Cli
-. "$HOME/.local/bin/env"
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
