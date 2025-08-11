@@ -100,3 +100,6 @@ export PATH="/home/username/miniconda/bin:$PATH"
 
 # Posting Cli
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
+
+# Created by `pipx` on 2025-07-27 22:08:53
+export PATH="$PATH:/Users/rodrigoibarra/.local/bin"
