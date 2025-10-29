@@ -27,3 +27,7 @@ opt.clipboard:append("unnamedplus")
 --splitting
 opt.splitright = true
 opt.splitbelow = true
+
+-- window styling
+
+opt.winborder = "rounded"

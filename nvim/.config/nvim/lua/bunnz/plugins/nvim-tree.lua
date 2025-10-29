@@ -21,14 +21,8 @@ return {
                 group_empty = true,
             },
             filters = {
-                exclude = {
-                    "node_modules",
-                    ".git",
-                    "build",
-                },
                 custom = {
-                    ".DS_store",
-
+                    ".DS_store", "node_modules"
                 },
 
 
@@ -37,7 +31,7 @@ return {
 
         -- set keymaps
         local keymap = vim
-        .keymap                                                                                         -- for conciseness
+            .keymap                                                                                     -- for conciseness
 
         keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })     -- toggle file explorer
         keymap.set("n", "<leader>eq", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })     -- this is just because I like to use different bindings to open and close
