@@ -56,3 +56,4 @@ cask "transmit", args: { appdir: "/Applications" }
 cask "vlc", args: { appdir: "/Applications" }
 brew "stow"
 brew "starship"
+brew "tmux"
