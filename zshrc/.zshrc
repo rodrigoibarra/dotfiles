@@ -42,6 +42,8 @@ eval $(thefuck --alias fk)
 alias cat="bat"
 export BAT_THEME="Catppuccin Mocha"
 
+# Glow
+
 # ---- FZF -----
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"

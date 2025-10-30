@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
+    "L3MON4D3/LuaSnip",
     event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-buffer",           -- source for text in buffer
