@@ -6,12 +6,12 @@ return {
 
         conform.setup({
             formatters_by_ft = {
-                astro = { "prettier" },
-                css = { "prettier" },
-                html = { "prettier" },
+                astro = { "stylelint" },
+                css = { "stylelint" },
+                html = { "stylelint" },
                 json = { "prettier" },
                 yaml = { "prettier" },
-                markdown = { "prettier" },
+                markdown = { "stylelint" },
                 lua = { "stylua" },
             },
             format_on_save = {
