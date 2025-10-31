@@ -1,32 +1,33 @@
 return {
-    "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-        local conform = require("conform")
+	"stevearc/conform.nvim",
+	event = { "BufReadPre", "BufNewFile" },
+	config = function()
+		local conform = require("conform")
 
-        conform.setup({
-            formatters_by_ft = {
-                astro = { "stylelint" },
-                css = { "stylelint" },
-                html = { "stylelint" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                markdown = { "stylelint" },
-                lua = { "stylua" },
-            },
-            format_on_save = {
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            },
-        })
+		conform.setup({
+			formatters_by_ft = {
+				astro = { "stylelint" },
+				css = { "stylelint" },
+				typescript = { "prettier" },
+				html = { "stylelint" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "stylelint" },
+				lua = { "stylua" },
+			},
+			format_on_save = {
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
+			},
+		})
 
-        vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-            conform.format({
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            })
-        end, { desc = "Format file or range (in visual mode)" })
-    end,
+		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+			conform.format({
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
+			})
+		end, { desc = "Format file or range (in visual mode)" })
+	end,
 }
