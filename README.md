@@ -1,39 +1,47 @@
 # DRIPR
+My personal macOS dotfiles, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-.Dripr is the recipe for my MacOS environment, what I mean by that is, I can take a new Mac computer, run brew.sh and it will install most of the stuff I need, like npm and git and node, along with a bunch of apps that I use daily. After the brew is done, It will link all my .dotfiles to the new instances so I’ll have all my personal configuratións with minimal effort.
+## Shell
+- **zsh** with [Antigen](https://github.com/zsh-users/antigen) for plugin management
+- **[Starship](https://starship.rs/)** prompt
+- **[zoxide](https://github.com/ajeetdsouza/zoxide)** — smarter cd
+- **[autojump](https://github.com/wting/autojump)** — directory jumping
+- **[thefuck](https://github.com/nvbn/thefuck)** — command correction
+- zsh-autosuggestions, zsh-completions, zsh-syntax-highlighting
 
+## Terminal
+- **[Ghostty](https://ghostty.org/)**
 
-## What's in this?
+## Neovim
+Built on [LazyVim](https://www.lazyvim.org/) with:
+- **[mini.files](https://github.com/nvim-mini/mini.files)** — file explorer
+- **[mini.completions](https://github.com/nvim-mini/mini.nvim)** — autocompletion
+- **[mini.icons](https://github.com/nvim-mini/mini.nvim)** — file icons
 
-Brew.sh is a three script task, and you can run each on its own:
-- Ground.sh - Will check and install the entire environment, you can check the list of apps and frameworks it will install here.
-- Pour.sh - Will run a bunch of scripts that will reset and change some defaults on your MacOS to make it a bit better ( this is pretty much a slightly altered version of what Mathias Bynens did, this is basically the standard).
-- Cleanup.sh - Will symlink all my current .dotfiles with my personal configuration and settings for the apps that I use.
+## CLI Tools
+- **[yazi](https://github.com/sxyazi/yazi)** — terminal file manager
+- **[bat](https://github.com/sharkdp/bat)** — cat replacement
+- **[glow](https://github.com/charmbracelet/glow)** — markdown in the terminal
+- **[eza](https://github.com/eza-community/eza)** — ls replacement
+- **[fzf](https://github.com/junegunn/fzf)** — fuzzy finder
+- **[fd](https://github.com/sharkdp/fd)** — find replacement
+- **[ripgrep](https://github.com/BurntSushi/ripgrep)** — fast grep
+- **[jq](https://jqlang.github.io/jq/)** / **[yq](https://github.com/mikefarah/yq)** — JSON/YAML processing
+- **[lazygit](https://github.com/jesseduffield/lazygit)** — git TUI
+- **[lazydocker](https://github.com/jesseduffield/lazydocker)** — docker TUI
+- **[gh](https://cli.github.com/)** — GitHub CLI
+- **[tmux](https://github.com/tmux/tmux)** — terminal multiplexer
 
-**Note:  Do not run any script without understanding what it does and if you do chose to run this one, it is in no way perfect, this is just what works for me, but you can still use it to build your own.**
+## macOS Apps
+- **[Alfred](https://www.alfredapp.com/)** — launcher
+- **[Ghostty](https://ghostty.org/)** — terminal
+- **[AltTab](https://alt-tab-macos.netlify.app/)** — window switcher
+- **[Rectangle](https://rectangleapp.com/)** — window management
+- **[Transmit](https://panic.com/transmit/)** — file transfer
+- **[sketchybar](https://github.com/FelixKratz/SketchyBar)** — custom menu bar
 
+## Keyboards
+Custom QMK configs for DZ60 and Agar boards.
 
-
-## Notes
-
-for Oh my git after a clean installation... go to
-
-https://github.com/arialdomartini/oh-my-git
-
-
-## Install
-
-On fresh installation of MacOS:
-
-```shell
- git clone https://github.com/rodrigoibarra/brwr.git && cd brwr
-```
-Once that's done **please read the script and understand what it does**
-```shell
- nano freshBrew.sh
-```
-Now you are ready to brew some hot hot new env.
-```shell
- sh freshBrew.sh
-```
-
+---
+> Personal config, not a one-size-fits-all setup. Use it as inspiration, not a blueprint.
