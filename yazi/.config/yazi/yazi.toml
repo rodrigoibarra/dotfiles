@@ -1,0 +1,15 @@
+[mgr]
+show_hidden = true
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', desc = "Edit with nvim", block = true },
+]
+
+[open]
+rules = [
+  { mime = "text/*", use = "edit" },
+  { name = "{*.astro,*.bash,*.cjs,*.css,*.fish,*.html,*.js,*.jsx,*.lua,*.md,*.mdx,*.mjs,*.py,*.pyi,*.pyw,*.rst,*.sh,*.ts,*.tsx,*.txt,*.vue,*.zsh}", use = "edit" },
+]
+
+

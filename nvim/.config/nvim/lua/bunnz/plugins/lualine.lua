@@ -1,27 +1,27 @@
 return {
-    "nvim-lualine/lualine.nvim",
+	"nvim-lualine/lualine.nvim",
 
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 
-    config = function()
-        local lualine = require("lualine")
-        local lazy_status = require("lazy.status")
+	config = function()
+		local lualine = require("lualine")
+		local lazy_status = require("lazy.status")
 
-        lualine.setup({
-            options = {
-                theme = "catppuccin",
-            },
-            sections = {
-                lualine_x = {
-                    {
-                        lazy_status.updates,
-                        cond = lazy_status.has_updates,
-                    },
-                    { "encoding" },
-                    { "fileformat" },
-                    { "filetype" },
-                },
-            },
-        })
-    end,
+		lualine.setup({
+			options = {
+				theme = "catppuccin-nvim", -- correct
+			},
+			sections = {
+				lualine_x = {
+					{
+						lazy_status.updates,
+						cond = lazy_status.has_updates,
+					},
+					{ "encoding" },
+					{ "fileformat" },
+					{ "filetype" },
+				},
+			},
+		})
+	end,
 }
