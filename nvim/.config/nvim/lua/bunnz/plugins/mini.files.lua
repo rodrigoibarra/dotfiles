@@ -1,5 +1,6 @@
 -- lua/plugins/mini-files.lua
 return {
+
 	"nvim-mini/mini.files",
 	version = "*",
 	lazy = false,
@@ -28,6 +29,7 @@ return {
 				use_as_default_explorer = true,
 			},
 		})
+
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>ee", function()
 			require("mini.files").open()
@@ -38,12 +40,16 @@ return {
 		keymap.set("n", "<leader>ef", function()
 			require("mini.files").open(vim.api.nvim_buf_get_name(0))
 		end, { desc = "Open file explorer on current file" })
+
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "MiniFilesBufferCreate",
 			callback = function(args)
+				local buf = args.data.buf_id
+				vim.b[buf].conform_disabled = true
+
 				vim.keymap.set("n", "<Enter>", function()
 					require("mini.files").go_in()
-				end, { buffer = args.data.buf_id, desc = "Open file / Enter directory" })
+				end, { buffer = buf, desc = "Open file / Enter directory" })
 			end,
 		})
 	end,

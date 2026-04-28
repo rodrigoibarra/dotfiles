@@ -3,25 +3,28 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
-
 		conform.setup({
 			formatters_by_ft = {
-				astro = { "stylelint" },
-				css = { "stylelint" },
+				astro = { "prettier" },
+				css = { "prettier" },
 				typescript = { "prettier" },
-				html = { "stylelint" },
+				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "stylelint" },
+				markdown = { "prettier" },
 				lua = { "stylua" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			format_on_save = function(bufnr)
+				if vim.b[bufnr].conform_disabled then
+					return
+				end
+				return {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 1000,
+				}
+			end,
 		})
-
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,

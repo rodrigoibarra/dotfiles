@@ -1,3 +1,4 @@
 return {
-	vim.lsp.enable({ "lua_lsp", "eslint", "emmet", "cssls", "css_variables" }),
+
+	vim.lsp.enable({ "lua_lsp", "eslint", "emmet", "cssls", "css_variables", "astro" }),
 }
