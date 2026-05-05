@@ -1,4 +1,4 @@
-vim.lsp.config["emmet"] = {
+return {
 
 	cmd = { "emmet-ls", "--stdio" },
 	filetypes = {
