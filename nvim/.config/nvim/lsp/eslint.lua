@@ -11,6 +11,7 @@ return {
 		"yaml",
 	},
 	settings = {
+		workingDirectory = { mode = "auto" },
 		rulesCustomizations = {
 			{ rule = "style/*", severity = "off", fixable = true },
 			{ rule = "format/*", severity = "off", fixable = true },
@@ -24,14 +25,4 @@ return {
 			{ rule = "*semi", severity = "off", fixable = true },
 		},
 	},
-	on_attach = function(client, bufnr)
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			buffer = bufnr,
-			callback = function()
-				if vim.fn.exists(":EslintFixAll") > 0 then
-					vim.cmd("EslintFixAll")
-				end
-			end,
-		})
-	end,
 }

@@ -23,8 +23,8 @@ time_format = '%R'
 utc_time_offset = '-6'
 
 [character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
+success_symbol = "[󰸞](bold green)"
+error_symbol = "[](bold red)"
 
 [git_status]
 style = "bold teal"
@@ -44,7 +44,7 @@ ssh_symbol = " "
 symbol = " "
 
 [python]
-symbol = " "
+symbol = " "
 
 [ruby]
 symbol = " "

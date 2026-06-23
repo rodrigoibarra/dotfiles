@@ -5,6 +5,8 @@ export PATH="/usr/local/bin:/$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 
+export TERM=xterm-256color
+
 # history setup
 
 HISTFILE=$HOME/.zhistory
@@ -48,7 +50,7 @@ export BAT_THEME="Catppuccin Mocha"
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
-# fzf ignores... 
+# fzf ignores...
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 # -- Use fd instead of fzf --
 
@@ -91,7 +93,7 @@ eval "$(starship init zsh)"
 export NVM_DIR="$HOME/.custom-nvm-dir"
 export NVM_COMPLETION=true
 export JAVA_HOME=/usr/bin/java
-export PATH=$JAVA_HOME/bin:$PATH 
+export PATH=$JAVA_HOME/bin:$PATH
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
