@@ -6,10 +6,11 @@ return {
 		"windwp/nvim-ts-autotag",
 	},
 	config = function()
-		local treesitter = require("nvim-treesitter.configs")
+		local treesitter = require("nvim-treesitter.config")
 		treesitter.setup({
 			highlight = {
 				enable = true,
+				disable = { "markdown", "markdown_inline" },
 			},
 			indent = {
 				enable = true,
@@ -30,7 +31,6 @@ return {
 				"lua",
 				"markdown",
 				"markdown_inline",
-				"prisma",
 				"python",
 				"query",
 				"regex",
