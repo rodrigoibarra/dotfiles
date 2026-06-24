@@ -1,4 +1,3 @@
-tap "felixkratz/formulae"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "koekeishiya/formulae"
@@ -50,6 +49,7 @@ brew "jesseduffield/lazygit/lazygit"
 brew "harfbuzz"
 brew "fontforge"
 brew "ghostscript"
+brew "nowplaying-cli"
 
 # ── Runtimes ──────────────────────────────────────────────────────────────
 brew "node"

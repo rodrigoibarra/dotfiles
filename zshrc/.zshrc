@@ -34,7 +34,7 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 alias ld="eza --color=always -D -G --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias lf="eza --color=always -a -f --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias cat="bat"
-alias ff='nvim $(fzf --preview "bat -n --color=always --line-range :500 {}")'
+alias fssh='ssh $(grep "^Host " ~/.ssh/config | grep -v "\*" | awk "{print \$2}" | fzf)'
 
 # ── Bat ───────────────────────────────────────────────────────────────────
 export BAT_THEME="Catppuccin Mocha"
