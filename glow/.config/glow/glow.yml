@@ -1,0 +1,4 @@
+# glow configuration
+style: "dark"
+pager: true
+width: 100

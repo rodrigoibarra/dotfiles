@@ -1,33 +1,43 @@
 local opt = vim.opt
 
-opt.relativenumber = true
+-- line numbers
 opt.number = true
+opt.relativenumber = true
 
 -- tabs & indentation
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.smartindent = true
 opt.wrap = false
 
--- search settings
+-- search
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = true
 
+-- appearance
 opt.cursorline = true
-
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.winborder = "rounded"
+opt.conceallevel = 2 -- required for render-markdown.nvim
 
-opt.backspace = "indent,eol,start"
+-- scrolling
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 
-opt.clipboard:append("unnamedplus")
-
---splitting
+-- splits
 opt.splitright = true
 opt.splitbelow = true
 
--- window styling
+-- editing
+opt.backspace = "indent,eol,start"
+opt.clipboard:append("unnamedplus")
+opt.undofile = true -- persistent undo across sessions
 
-opt.winborder = "rounded"
+-- performance
+opt.updatetime = 250 -- faster CursorHold events (LSP hover, diagnostics)
+opt.timeoutlen = 300 -- faster which-key popup

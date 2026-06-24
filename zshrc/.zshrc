@@ -1,109 +1,114 @@
+# ── Path ──────────────────────────────────────────────────────────────────
+export PATH="/usr/local/bin:$HOME/.bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="/usr/local/opt/tree-sitter/bin:$PATH"
 
-export PATH="/usr/local/bin:/$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
+# ── Terminal ──────────────────────────────────────────────────────────────
+export TERM=tmux-256color
 
-alias reload-zsh="source ~/.zshrc"
-alias edit-zsh="nvim ~/.zshrc"
-
-export TERM=xterm-256color
-
-# history setup
-
+# ── History ───────────────────────────────────────────────────────────────
 HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=999
+SAVEHIST=10000
+HISTSIZE=9999
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
- plugins=(git zsh-autosuggestions)
-
-# completion using arrow keys (based on history)
+# ── Completion ────────────────────────────────────────────────────────────
+autoload -Uz compinit && compinit
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# Setup zsh-autosuggestions
+# ── Plugins ───────────────────────────────────────────────────────────────
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-# EZA config better ls
+# ── Aliases ───────────────────────────────────────────────────────────────
+alias reload-zsh="source ~/.zshrc"
+alias edit-zsh="nvim ~/.zshrc"
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias ld="eza --color=always -D -G --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias lf="eza --color=always -a -f --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-
-# Zoxide config better cd
-eval "$(zoxide init zsh)"
-alias cd="z"
-
-# the fuck - this suggests promt corrections
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
-
-# Bat
 alias cat="bat"
+alias ff='nvim $(fzf --preview "bat -n --color=always --line-range :500 {}")'
+
+# ── Bat ───────────────────────────────────────────────────────────────────
 export BAT_THEME="Catppuccin Mocha"
 
-# Glow
+# ── Zoxide ────────────────────────────────────────────────────────────────
+eval "$(zoxide init zsh --cmd cd)"
 
-# ---- FZF -----
-# Set up fzf key bindings and fuzzy completion
+# ── Thefuck ───────────────────────────────────────────────────────────────
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias fk)"
+
+# ── fzf ───────────────────────────────────────────────────────────────────
 eval "$(fzf --zsh)"
 
-# fzf ignores...
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-# -- Use fd instead of fzf --
-
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules --exclude .DS_Store"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude node_modules --exclude .DS_Store"
 
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
+export FZF_DEFAULT_OPTS="
+  --height 50%
+  --layout reverse
+  --border rounded
+  --prompt '  '
+  --pointer '▶'
+  --marker '✓'
+  --info inline
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+  --color=selected-bg:#45475a
+  --color=border:#313244,label:#cdd6f4
+"
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always --line-range :500 {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'
+"
+
+export FZF_ALT_C_OPTS="
+  --preview 'eza --tree --color=always {} | head -200'
+"
+
+bindkey -s '^F' 'cd $(fd --type=d --hidden --exclude .git --exclude node_modules --exclude .DS_Store | fzf --preview "eza --tree --color=always {} | head -200")\n'
+
 _fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
+  fd --hidden --exclude .git --exclude node_modules --exclude .DS_Store . "$1"
 }
 
-# Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
+  fd --type=d --hidden --exclude .git --exclude node_modules --exclude .DS_Store . "$1"
 }
 
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-# This configures CTRL-T to use eza to show the files and bat for preview
 _fzf_comprun() {
   local command=$1
   shift
   case "$command" in
     cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
-    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \${}'"                         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                                   "$@" ;;
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
 
-# Starship as prompt
+# ── Starship ──────────────────────────────────────────────────────────────
 eval "$(starship init zsh)"
 
+# ── Glow ──────────────────────────────────────────────────────────────
+alias gl="glow"
 
-# Everything else
-export NVM_DIR="$HOME/.custom-nvm-dir"
-export NVM_COMPLETION=true
-export JAVA_HOME=/usr/bin/java
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/home/username/miniconda/bin:$PATH"
-
-# Posting Cli
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
-
-# Created by `pipx` on 2025-07-27 22:08:53
-export PATH="$PATH:/Users/rodrigoibarra/.local/bin"
+# pnpm
+export PNPM_HOME="/Users/rodrigoibarra/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
