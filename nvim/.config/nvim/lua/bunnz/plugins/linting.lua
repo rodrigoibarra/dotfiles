@@ -17,6 +17,9 @@ return {
 			css = { "stylelint" },
 			scss = { "stylelint" },
 
+			-- go
+			-- go = { "golangci-lint" },
+
 			-- python
 			python = { "ruff" },
 		}

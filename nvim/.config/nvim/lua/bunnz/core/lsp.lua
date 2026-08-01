@@ -129,6 +129,22 @@ local servers = {
 		},
 	},
 
+	gopls = {
+		cmd = { "gopls" },
+		filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		root_markers = { "go.mod", "go.work", ".git" },
+		settings = {
+			gopls = {
+				analyses = {
+					unusedparams = true,
+					shadow = true,
+				},
+				staticcheck = true,
+				gofumpt = false, -- set true if you want stricter formatting
+			},
+		},
+	},
+
 	emmet_language_server = {
 		cmd = { "emmet-language-server", "--stdio" },
 		filetypes = {
@@ -168,4 +184,3 @@ for name, config in pairs(servers) do
 	vim.lsp.config(name, config)
 	vim.lsp.enable(name)
 end
-

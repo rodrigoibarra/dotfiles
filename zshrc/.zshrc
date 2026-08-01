@@ -5,9 +5,15 @@ export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/opt/tree-sitter/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # ── Terminal ──────────────────────────────────────────────────────────────
 export TERM=tmux-256color
+stty -ixon
 
 # ── History ───────────────────────────────────────────────────────────────
 HISTFILE=$HOME/.zhistory
@@ -35,7 +41,7 @@ alias ld="eza --color=always -D -G --git --no-filesize --icons=always --no-time 
 alias lf="eza --color=always -a -f --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias cat="bat"
 alias fssh='ssh $(grep "^Host " ~/.ssh/config | grep -v "\*" | awk "{print \$2}" | fzf)'
-
+alias organize-docs="python3 ~/dotfiles/utils/organize_documents.py"
 # ── Bat ───────────────────────────────────────────────────────────────────
 export BAT_THEME="Catppuccin Mocha"
 

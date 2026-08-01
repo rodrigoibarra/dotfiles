@@ -1,0 +1,173 @@
+# ~/.aerospace.toml
+config-version = 2
+# AeroSpace config — single monitor, named workspaces, auto-tiling enabled.
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+
+# Start AeroSpace automatically and reload config on save
+start-at-login = true
+after-login-command = []
+after-startup-command = [
+    'exec-and-forget borders style=round active_color=0xfff38ba8 inactive_color=0xff414550 width=6.0'
+]
+# NOTE: sketchybar is deliberately NOT launched here. It's managed as a
+# persistent brew service (`brew services start sketchybar`), and having
+# AeroSpace also spawn its own copy on every startup creates two competing
+# sketchybar processes fighting over the same bar — config changes look like
+# they're not taking effect because you're sometimes looking at the stale one.
+
+# Fires every time the focused workspace changes so SketchyBar updates instantly
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# Keep the animation-heavy Spaces switching out of the way (AeroSpace uses
+# its own workspace model, not native macOS Spaces animation)
+automatically-unhide-macos-hidden-apps = true
+
+# --- Layout defaults (real tiling, since you're giving autotiling a shot) ---
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+accordion-padding = 30
+
+# Some gap so it doesn't feel claustrophobic on a single display.
+# outer.top clears the 28px SketchyBar strip (now docked at the top instead
+# of the right edge), outer.right is back to a normal small gap.
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.right = 8
+outer.top = 36
+outer.bottom = 8
+
+# --- Key mapping ---
+[key-mapping]
+preset = 'qwerty'
+
+# ============================================================
+# MAIN MODE — everyday navigation
+# ============================================================
+[mode.main.binding]
+
+# Focus windows within current workspace (vim-style)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows within current workspace
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Resize
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# --- Named workspaces (context-based), switched via Hyperkey (corne layer) ---
+# q = dev      -> Ghostty, Claude desktop
+# w = web      -> Safari
+# e = planning -> Todoist, Calendar
+# r = comms    -> Spark (mail)
+# t = notion   -> Notion (coffee + BJJ tracking), if/when open
+# y = misc     -> spare, unassigned workspace
+# AeroSpace has no built-in "hyper" modifier keyword, so the corne's
+# Hyperkey (cmd+alt+ctrl+shift sent together from one key) is written out
+# as all four modifiers here.
+
+cmd-alt-ctrl-shift-q = 'workspace dev'
+cmd-alt-ctrl-shift-w = 'workspace web'
+cmd-alt-ctrl-shift-e = 'workspace planning'
+cmd-alt-ctrl-shift-r = 'workspace comms'
+cmd-alt-ctrl-shift-t = 'workspace notion'
+cmd-alt-ctrl-shift-y = 'workspace misc'
+
+# Previous / next workspace, wrapping — no more reaching across the number row
+# NOTE: --wrap-around is a flag on `workspace`, it must come before next/prev.
+cmd-alt-ctrl-shift-a = 'workspace --wrap-around prev'
+cmd-alt-ctrl-shift-d = 'workspace --wrap-around next'
+
+# Detach the focused window from the tiling tree (floats it in place)
+cmd-alt-ctrl-shift-s = 'layout floating tiling'
+
+alt-shift-1 = 'move-node-to-workspace dev'
+alt-shift-2 = 'move-node-to-workspace web'
+alt-shift-3 = 'move-node-to-workspace planning'
+alt-shift-4 = 'move-node-to-workspace comms'
+alt-shift-5 = 'move-node-to-workspace notion'
+
+# Quick back-and-forth between last two workspaces
+alt-tab = 'workspace-back-and-forth'
+
+# Toggle a single window between floating and tiling
+# (your Rectangle-style escape hatch — keep this for the "just let it be full
+# screen and don't tile it" cases)
+alt-shift-space = 'layout floating tiling'
+
+# Fullscreen the focused window without tiling it
+alt-shift-f = 'fullscreen'
+
+# Reset a messy tree back to default layout
+alt-shift-r = 'flatten-workspace-tree'
+
+# Enter service mode
+alt-shift-semicolon = 'mode service'
+
+# ============================================================
+# SERVICE MODE — occasional/admin commands
+# ============================================================
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# ============================================================
+# APP-TO-WORKSPACE ASSIGNMENT
+# ============================================================
+# Find an app's bundle id by running: aerospace list-apps
+# Adjust these if any id doesn't match what's on your machine.
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace dev'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace dev'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace web'
+
+[[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+run = 'move-node-to-workspace planning'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace planning'
+
+[[on-window-detected]]
+if.app-id = 'com.readdle.SparkDesktop'
+run = 'move-node-to-workspace comms'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace notion'
+
+# Finder pops up a lot of transient/quick-look windows — better floating
+# than getting tiled into whatever workspace you're currently in.
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+# Things that should always float, never tile (dialogs, utilities, etc.)
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'

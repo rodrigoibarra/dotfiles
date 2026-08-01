@@ -93,7 +93,7 @@ brew "dfu-util"
 
 # ── Casks ─────────────────────────────────────────────────────────────────
 cask "alfred"
-cask "alt-tab"
+cask "dockdoor"
 cask "firefox", args: { appdir: "/Applications" }
 cask "font-hack-nerd-font"
 cask "ghostty"

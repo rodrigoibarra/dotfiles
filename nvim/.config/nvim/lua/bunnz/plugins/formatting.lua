@@ -22,6 +22,9 @@ return {
 				astro = { "prettier" },
 				yaml = { "prettier" },
 
+				--go
+				go = { "goimports" },
+
 				-- python
 				python = { "ruff_format" },
 
