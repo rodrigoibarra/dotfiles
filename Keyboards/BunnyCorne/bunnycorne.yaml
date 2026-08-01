@@ -1,0 +1,190 @@
+layout: {qmk_keyboard: crkbd/rev4_1/standard, layout_name: LAYOUT_split_3x6_3_ex2}
+layers:
+  Base:
+  - TAB
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - MUTE
+  - VOLU
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - BSPC
+  - LCTL
+  - A
+  - S
+  - D
+  - F
+  - G
+  - MPLY
+  - VOLD
+  - H
+  - J
+  - K
+  - L
+  - ;
+  - ENT
+  - LSFT
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - RSFT
+  - TD(0)
+  - LALT
+  - LGUI
+  - SPC
+  - {h: Fn}
+  - {t: Nav, h: toggle}
+  Nav:
+  - ESC
+  - HOME
+  - UP
+  - END
+  - PGUP
+  - PGDN
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '['
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - CAPS
+  - LEFT
+  - DOWN
+  - RGHT
+  - FIND
+  - PAUS
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ']'
+  - '='
+  - ''
+  - ''
+  - ''
+  - ''
+  - LSFT
+  - UNDO
+  - CUT
+  - COPY
+  - PSTE
+  - AGIN
+  - '`'
+  - '-'
+  - ''
+  - ''
+  - ''
+  - ''
+  - TD(0)
+  - {t: Numpad, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Fn:
+  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - ''
+  - '{'
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&'
+  - '*'
+  - '['
+  - ']'
+  - ''
+  - ''
+  - '}'
+  - RM ON
+  - RM OFF
+  - RM VALU
+  - RM VALD
+  - ''
+  - RM NEXT
+  - RM PREV
+  - ''
+  - ''
+  - ''
+  - ''
+  - TD(0)
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - ''
+  Numpad:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - NUM
+  - PSLS
+  - P7
+  - P8
+  - P9
+  - PPLS
+  - (
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PAST
+  - P4
+  - P5
+  - P6
+  - PMNS
+  - )
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - PCMM
+  - P1
+  - P2
+  - P3
+  - PEQL
+  - PENT
+  - TD(0)
+  - {t: Base, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - P0
