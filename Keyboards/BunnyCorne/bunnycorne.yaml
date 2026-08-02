@@ -46,7 +46,7 @@ layers:
   - LGUI
   - SPC
   - {h: Fn}
-  - {t: Nav, h: toggle}
+  - TD(1)
   Nav:
   - ESC
   - HOME

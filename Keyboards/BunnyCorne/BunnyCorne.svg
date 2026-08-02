@@ -310,9 +310,7 @@ path.combo {
 </a></g>
 <g transform="translate(616, 205)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#Nav">
-<text x="0" y="0" class="key tap layer-activator">Nav</text>
-</a><text x="0" y="24" class="key hold">toggle</text>
+<text x="0" y="0" class="key tap">TD(1)</text>
 </g>
 </g>
 </g>

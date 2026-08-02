@@ -10,19 +10,40 @@
  * edit it directly.
  */
 
-enum { TD_RESET_L0 = 0 };
+enum { TD_RESET_L0 = 0, TD_HYPER_NAV = 1 };
 
 void reset_l0_finished(tap_dance_state_t *state, void *user_data) {
     if (state->count == 2) layer_move(0);
 }
 
+static bool hyper_nav_holding = false;
+
+void hyper_nav_finished(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1 && state->pressed) {
+        // still held down after one press: act as Hyper
+        hyper_nav_holding = true;
+        register_mods(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI));
+    } else if (state->count == 2) {
+        // double tap (whether the 2nd tap is held or released): toggle nav layer
+        layer_invert(1);
+    }
+}
+
+void hyper_nav_reset(tap_dance_state_t *state, void *user_data) {
+    if (hyper_nav_holding) {
+        unregister_mods(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI));
+        hyper_nav_holding = false;
+    }
+}
+
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_RESET_L0] = ACTION_TAP_DANCE_FN(reset_l0_finished),
+    [TD_RESET_L0]  = ACTION_TAP_DANCE_FN(reset_l0_finished),
+    [TD_HYPER_NAV] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, hyper_nav_finished, hyper_nav_reset),
 };
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_split_3x6_3_ex2(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_MUTE, KC_VOLU, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_MPLY, KC_VOLD, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, TD(0), KC_LALT, KC_LGUI, KC_SPC, LT(2,KC_NO), TG(1)),
+    [0] = LAYOUT_split_3x6_3_ex2(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_MUTE, KC_VOLU, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_MPLY, KC_VOLD, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, TD(0), KC_LALT, KC_LGUI, KC_SPC, LT(2,KC_NO), TD(1)),
     [1] = LAYOUT_split_3x6_3_ex2(KC_ESC, KC_HOME, KC_UP, KC_END, KC_PGUP, KC_PGDN, KC_TRNS, KC_TRNS, KC_LBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_CAPS, KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND, KC_PAUS, KC_TRNS, KC_TRNS, KC_RBRC, KC_EQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_LSFT, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE, KC_AGIN, KC_GRV, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, TD(0), TG(3), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
     [2] = LAYOUT_split_3x6_3_ex2(KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_TRNS, KC_TRNS, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_NO, KC_LCBR, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_TRNS, KC_TRNS, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_RCBR, RM_ON, RM_OFF, RM_VALU, RM_VALD, KC_NO, RM_NEXT, RM_PREV, MEH(KC_NO), HYPR(KC_NO), KC_NO, KC_NO, TD(0), KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO),
     [3] = LAYOUT_split_3x6_3_ex2(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NUM, KC_PSLS, KC_P7, KC_P8, KC_P9, KC_PPLS, KC_LPRN, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_PAST, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_RPRN, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PCMM, KC_P1, KC_P2, KC_P3, KC_PEQL, KC_PENT, TD(0), TG(0), KC_TRNS, KC_TRNS, KC_NO, KC_P0)
