@@ -1,0 +1,73 @@
+gui:
+  nerdFontsVersion: "3"
+  showFileTree: true
+  showRandomTip: false
+  showCommandLog: true
+  expandFocusedSidePanel: true
+  border: rounded
+  sidePanelWidth: 0.3
+  theme:
+    activeBorderColor:
+      - "#cba6f7"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    selectedRangeBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#cba6f7"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+  authorColors:
+    "*": "#b4befe"
+
+git:
+  mainBranches: [master, main]
+  autoFetch: true
+  log:
+    showGraph: always
+  pagers:
+    - pager: delta --paging=never --width={{columnWidth}} --features="catppuccin-mocha lazygit"
+      colorArg: always
+    - externalDiffCommand: difft --color=always
+
+os:
+  editPreset: nvim
+
+update:
+  method: never
+
+promptToReturnFromSubprocess: false
+
+customCommands:
+  - key: "C"
+    context: "files"
+    description: "Conventional commit"
+    prompts:
+      - type: "menu"
+        key: "Type"
+        title: "Type of change"
+        options:
+          - { name: "feat", value: "feat" }
+          - { name: "fix", value: "fix" }
+          - { name: "chore", value: "chore" }
+          - { name: "docs", value: "docs" }
+          - { name: "refactor", value: "refactor" }
+      - type: "input"
+        key: "Scope"
+        title: "Scope (optional)"
+      - type: "input"
+        key: "Message"
+        title: "Short description"
+    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}: {{.Form.Message}}'"
+    loadingText: "committing"

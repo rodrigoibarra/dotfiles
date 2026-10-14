@@ -93,4 +93,8 @@
 [delta]
 	features = catppuccin-mocha
 	navigate = true
-	side-by-side = true
+  side-by-side = true
+
+[delta "lazygit"]
+	side-by-side = false
+	line-numbers = true
