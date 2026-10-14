@@ -1,42 +1,96 @@
-[apply]
+[user]
+	name = Rodrigo Ibarra
+  email = hola@rodrigo-ibarra.com
+  signingkey = ~/.ssh/id_ed25519.pub
 
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+
+[commit]
+	gpgsign = true
+	verbose = true
+
+[tag]
+	gpgsign = true
+
+[init]
+	defaultBranch = main
 
 [core]
 	excludesfile = ~/.gitignore
-
+	editor = nvim
+	pager = delta
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
-
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
-[commit]
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
 
+[status]
+	short = true
+	branch = true
+
+[commit]
 	# https://help.github.com/articles/signing-commits-using-gpg/
+	verbose = true
 
 [diff]
-
 	# Detect copies as well as renames
 	renames = copies
+	algorithm = histogram
+	colorMoved = default
 
 [diff "bin"]
-
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
 [merge]
-
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	conflictstyle = zdiff3
 
 [push]
-
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
+	autoSetupRemote = true
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[pull]
+	ff = only
+
+[fetch]
+	prune = true
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = -committerdate
+
+[credential]
+	helper = osxkeychain
+
+[interactive]
+	diffFilter = delta --color-only
+
+[include]
+	path = ~/.config/git/catppuccin.gitconfig
+
+[delta]
+	features = catppuccin-mocha
+	navigate = true
+	side-by-side = true

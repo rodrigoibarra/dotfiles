@@ -1,0 +1,96 @@
+# Coruscant homelab .zshrc — lightweight remote SSH setup
+# Drop this in ~/.zshrc
+
+# ============================================================================
+# History
+# ============================================================================
+HISTFILE=~/.zsh_history
+HISTSIZE=20000
+SAVEHIST=20000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+
+# ============================================================================
+# zsh-syntax-highlighting
+# ============================================================================
+# Install: sudo apt-get install zsh-syntax-highlighting
+if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# ============================================================================
+# fzf
+# ============================================================================
+# Install: sudo apt-get install fzf
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
+# ============================================================================
+# zoxide
+# ============================================================================
+# Install: sudo apt-get install zoxide
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# ============================================================================
+# Prompt with exit code and execution time
+# ============================================================================
+setopt PROMPT_SUBST
+
+# Track command start time
+preexec() {
+  cmd_start_time=$(date +%s)
+}
+
+# Build prompt
+precmd() {
+  # Exit code indicator
+  if [[ $? -eq 0 ]]; then
+    exit_indicator="%F{green}✓%f"
+  else
+    exit_indicator="%F{red}✗%f"
+  fi
+
+  # Execution time
+  if [[ -n $cmd_start_time ]]; then
+    cmd_end_time=$(date +%s)
+    cmd_duration=$((cmd_end_time - cmd_start_time))
+    if [[ $cmd_duration -ge 3 ]]; then
+      exec_time=" %F{yellow}${cmd_duration}s%f"
+    else
+      exec_time=""
+    fi
+    unset cmd_start_time
+  fi
+}
+
+# Git branch (if in a git repo)
+git_branch() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "detached")
+    echo " %F{cyan}${branch}%f"
+  fi
+}
+
+# Prompt line
+PS1='${exit_indicator} %F{blue}%m%f %F{magenta}%n%f %F{white}%~%f$(git_branch)${exec_time}
+$ '
+
+# ============================================================================
+# Aliases (minimal)
+# ============================================================================
+alias ll='ls -lah'
+alias la='ls -la'
+alias l='ls -lh'
+alias grep='grep --color=auto'
+
+# ============================================================================
+# Key bindings
+# ============================================================================
+bindkey '^R' fzf-history-widget  # Ctrl+R for fuzzy history
+bindkey '^T' fzf-file-widget      # Ctrl+T for fuzzy file finding
