@@ -177,6 +177,19 @@ local servers = {
 			},
 		},
 	},
+
+	css_variables = {
+		cmd = { "css-variable-lsp", "--stdio" },
+		filetypes = { "css", "scss", "less", "astro" },
+		root_markers = { "package.json", ".git" },
+		settings = {
+			cssVariables = {
+				lookupFiles = { "src/**/*.css", "src/**/*.scss", "src/**/*.astro" },
+				blacklistFolders = { "**/node_modules", "**/dist", "**/.astro" },
+				undefinedVarFallback = "warning",
+			},
+		},
+	},
 }
 
 -- ── Enable all servers ────────────────────────────────────────────────────

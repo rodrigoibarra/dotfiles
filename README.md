@@ -120,6 +120,7 @@ Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11
 | Go | `gopls` |
 | Astro | `@astrojs/language-server` (npm) |
 | Emmet | `@olrtg/emmet-language-server` (npm) |
+| CSS variables (css, scss, less, astro) | `css-variable-lsp` (npm) |
 
 #### Per-project linting & formatting
 Linting and formatting are configured per project. No global formatters enforced.

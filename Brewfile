@@ -76,6 +76,7 @@ brew "gopls"                        # Go
 # npm install -g stylelint
 # npm install -g prettier-plugin-astro
 # npm install -g sfw
+# npm install -g css-variable-lsp
 
 # ── Formatters & linters ──────────────────────────────────────────────────
 brew "prettier"

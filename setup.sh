@@ -99,6 +99,7 @@ npm_globals=(
   "stylelint"
   "prettier-plugin-astro"
   "sfw"
+  "css-variable-lsp"
 )
 
 for pkg in "${npm_globals[@]}"; do
