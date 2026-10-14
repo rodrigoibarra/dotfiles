@@ -6,10 +6,10 @@ export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/opt/tree-sitter/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/dotfiles/bin:$PATH"
+ export PATH="$HOME/.cargo/bin:$PATH"
 
 # ── Terminal ──────────────────────────────────────────────────────────────
 export TERM=tmux-256color
@@ -47,10 +47,6 @@ export BAT_THEME="Catppuccin Mocha"
 
 # ── Zoxide ────────────────────────────────────────────────────────────────
 eval "$(zoxide init zsh --cmd cd)"
-
-# ── Thefuck ───────────────────────────────────────────────────────────────
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias fk)"
 
 # ── fzf ───────────────────────────────────────────────────────────────────
 eval "$(fzf --zsh)"
@@ -112,7 +108,7 @@ eval "$(starship init zsh)"
 alias gl="glow"
 
 # pnpm
-export PNPM_HOME="/Users/rodrigoibarra/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;

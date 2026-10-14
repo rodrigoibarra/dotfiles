@@ -1,8 +1,7 @@
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
-tap "koekeishiya/formulae"
+tap "felixkratz/formulae"
 tap "mas-cli/tap"
-tap "nikitabobko/tap"
 tap "shinokada/consize"
 
 # ── Shell ─────────────────────────────────────────────────────────────────
@@ -10,9 +9,7 @@ brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
-brew "antigen"
 brew "starship"
-brew "thefuck"
 brew "zoxide"
 
 # ── Core utilities ────────────────────────────────────────────────────────
@@ -39,6 +36,8 @@ brew "glow"              # markdown TUI viewer
 
 # ── System ────────────────────────────────────────────────────────────────
 brew "bottom"            # system monitor TUI
+brew "felixkratz/formulae/sketchybar"  # custom top bar
+brew "ical-buddy"        # calendar CLI (sketchybar)
 
 # ── Git ───────────────────────────────────────────────────────────────────
 brew "gh"
@@ -46,9 +45,7 @@ brew "jesseduffield/lazydocker/lazydocker"
 brew "jesseduffield/lazygit/lazygit"
 
 # ── Fonts & graphics ──────────────────────────────────────────────────────
-brew "harfbuzz"
 brew "fontforge"
-brew "ghostscript"
 brew "nowplaying-cli"
 
 # ── Runtimes ──────────────────────────────────────────────────────────────
@@ -68,6 +65,7 @@ brew "pyright"                      # Python
 brew "vue-language-server"          # volar — Vue
 brew "tailwindcss-language-server"  # Tailwind CSS class completion
 brew "lua-language-server"          # Lua
+brew "gopls"                        # Go
 
 # npm globals — run after `brew install node`:
 # npm install -g @astrojs/language-server
@@ -86,20 +84,17 @@ brew "stylua"            # Lua formatter
 
 # ── Terminal & multiplexer ────────────────────────────────────────────────
 brew "tmux"
-brew "http-server"
 
 # ── Hardware ──────────────────────────────────────────────────────────────
 brew "dfu-util"
 
 # ── Casks ─────────────────────────────────────────────────────────────────
 cask "alfred"
-cask "dockdoor"
+cask "alt-tab"
 cask "firefox", args: { appdir: "/Applications" }
 cask "font-hack-nerd-font"
 cask "ghostty"
 cask "google-chrome"
-cask "openemu", args: { appdir: "/Applications" }
 cask "rectangle"
 cask "transmit", args: { appdir: "/Applications" }
-cask "vlc", args: { appdir: "/Applications" }
 

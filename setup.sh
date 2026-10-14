@@ -11,7 +11,7 @@ set -e
 
 DOTFILES="$HOME/dotfiles"
 REPO="git@github.com:rodrigoibarra/dotfiles.git"
-STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship thefuck antigen glow configstore"
+STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar"
 
 # ── Colors ────────────────────────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -69,6 +69,7 @@ section "Homebrew packages"
 info "Trusting taps..."
 brew trust jesseduffield/lazydocker 2>/dev/null || true
 brew trust jesseduffield/lazygit 2>/dev/null || true
+brew trust felixkratz/formulae 2>/dev/null || true
 
 info "Running brew bundle..."
 brew bundle --file="$DOTFILES/Brewfile"
@@ -107,6 +108,36 @@ for pkg in "${npm_globals[@]}"; do
     info "Installing $pkg..."
     sudo npm install -g "$pkg"
     success "$pkg installed"
+  fi
+done
+
+# ── 6b. Rust toolchain & cargo tools ──────────────────────────────────────
+# delta (git pager) and difftastic (lazygit alt diff) come from cargo, not brew.
+section "Rust & cargo tools"
+export PATH="$HOME/.cargo/bin:$PATH"
+if command -v rustup &>/dev/null; then
+  success "rustup already installed"
+else
+  info "Installing rustup..."
+  # --no-modify-path: PATH for ~/.cargo/bin is managed in zshrc/.zshrc
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  success "rustup installed"
+fi
+
+# "crate:binary" pairs
+cargo_tools=(
+  "git-delta:delta"
+  "difftastic:difft"
+)
+for entry in "${cargo_tools[@]}"; do
+  crate="${entry%%:*}"
+  bin="${entry##*:}"
+  if command -v "$bin" &>/dev/null; then
+    success "$bin already installed"
+  else
+    info "Installing $crate (cargo)..."
+    cargo install --locked "$crate"
+    success "$crate installed"
   fi
 done
 

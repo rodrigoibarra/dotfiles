@@ -4,7 +4,7 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rodrigoibarra/dotfiles/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rodrigoibarra/dotfiles/master/setup.sh | bash
 ```
 
 Or clone and run manually:
@@ -22,7 +22,6 @@ bash ~/dotfiles/setup.sh
 - **zsh** with autosuggestions, completions, syntax highlighting
 - **[Starship](https://starship.rs/)** — minimal prompt (current dir, git branch/status, command duration)
 - **[zoxide](https://github.com/ajeetdsouza/zoxide)** — replaces `cd`
-- **[thefuck](https://github.com/nvbn/thefuck)** — command correction (`fk`)
 - **[fzf](https://github.com/junegunn/fzf)** — fuzzy finder (`Ctrl-T` files, `Ctrl-F` directories, `Ctrl-R` history)
 
 ### Terminal & Multiplexer
@@ -60,6 +59,14 @@ Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11
 | `conform.nvim` | formatting |
 | `nvim-lint` | linting |
 | `catppuccin` | colorscheme (Mocha) |
+| `mini.notify` / `mini.statusline` / `mini.icons` / `mini.indentscope` | notifications, statusline, icons, indent guides |
+| `alpha-nvim` | start dashboard |
+| `which-key.nvim` | keybinding hints |
+| `twilight.nvim` | dim inactive code (`:Twilight`) |
+| `render-markdown.nvim` | inline markdown rendering |
+| `nvim-ts-autotag` | auto-close / rename HTML tags |
+| `nvim-dap-ui` | debugger UI (`<leader>du`) |
+| `friendly-snippets` | snippet collection |
 
 #### Key bindings
 | Key | Action |
@@ -83,6 +90,22 @@ Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11
 | `gr` | references |
 | `K` | hover docs |
 | `<S-h/l>` | prev/next buffer |
+| `<leader>w` / `<leader>q` / `<leader>Q` | write / quit / quit all |
+| `<leader>o` | save and source current file |
+| `<leader>bd` | close buffer |
+| `<leader>nh` | clear search highlight |
+| `<leader>y` | yank to system clipboard |
+| `jk` | leave insert mode |
+| `<A-j/k>` | move line / selection down / up |
+| `<leader>fs` | grep current buffer |
+| `<leader>fd` / `<leader>fi` | LSP definitions / references (fzf) |
+| `<leader>fx` / `<leader>fX` | diagnostics: document / workspace |
+| `<leader>fk` / `<leader>fh` / `<leader>fc` | search keymaps / help / commands |
+| `<leader>gc` / `<leader>gB` | git commits / branches (fzf) |
+| `<leader>gh` | toggle git hunk overlay |
+| `<leader>dB` | conditional breakpoint |
+| `<leader>di` / `<leader>do` / `<leader>dO` | step into / over / out |
+| `<leader>dr` / `<leader>du` / `<leader>dx` | REPL / debugger UI / terminate |
 
 #### LSP servers (via Homebrew)
 | Language | Server |
@@ -94,6 +117,7 @@ Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11
 | Vue | `vue-language-server` |
 | Tailwind | `tailwindcss-language-server` |
 | Lua | `lua-language-server` |
+| Go | `gopls` |
 | Astro | `@astrojs/language-server` (npm) |
 | Emmet | `@olrtg/emmet-language-server` (npm) |
 
@@ -104,6 +128,13 @@ Linting and formatting are configured per project. No global formatters enforced
 - **Linting:** `nvim-lint` — uses `eslint_d` for JS/TS/Vue/Astro, `stylelint` for CSS, `ruff` for Python
 
 Each project should have its own `.eslintrc` / `stylelint.config.js` / `.prettierrc`.
+
+### Git & lazygit
+- **Signed commits and tags** via SSH (`~/.ssh/id_ed25519.pub`, `allowed_signers`); credentials in the macOS keychain
+- **[delta](https://github.com/dandavison/delta)** as pager: side-by-side, Catppuccin Mocha (`git/.config/git/catppuccin.gitconfig`)
+- Histogram diffs, `zdiff3` merge conflicts, `rerere`, auto-stash rebases, `pull.ff = only`, `push.autoSetupRemote`
+- **lazygit**: Catppuccin theme, delta pager (difftastic as an alternate), nvim as editor, auto-fetch, always-on graph log
+- lazygit custom command `C` (files panel): conventional-commit prompt (type, optional scope, message)
 
 ### CLI Tools
 | Tool | Purpose |
@@ -120,13 +151,24 @@ Each project should have its own `.eslintrc` / `stylelint.config.js` / `.prettie
 | `gh` | GitHub CLI |
 | `act` | run GitHub Actions locally |
 | `jq` / `yq` | JSON/YAML processing |
+| `delta` | git pager: side-by-side diffs, Catppuccin theme (installed with `cargo install git-delta`) |
+| `difft` | structural diff, alternate pager in lazygit (installed with `cargo install difftastic`) |
+| `ical-buddy` | calendar CLI (feeds SketchyBar) |
+| `nowplaying-cli` | now-playing info (feeds SketchyBar) |
 
 ### macOS Apps
-- **[Alfred](https://www.alfredapp.com/)** — launcher
+- **[Alfred](https://www.alfredapp.com/)** — launcher (import `alfred/Catppuccin-modern-frappe.alfredappearance` by hand)
 - **[AltTab](https://alt-tab-macos.netlify.app/)** — window switcher
-- **[Rectangle](https://rectangleapp.com/)** — window management
+- **[Rectangle](https://rectangleapp.com/)** — window management (import `rectangle/RectangleConfig.json` in its settings)
 - **[Transmit](https://panic.com/transmit/)** — file transfer
-- **[Ghostty](https://ghostty.org/)** — terminal
+- **[SketchyBar](https://github.com/FelixKratz/SketchyBar)** — custom top bar (see below)
+
+### SketchyBar
+Thin (28px, blurred) top bar in Catppuccin colors (`colors.sh`):
+- **Left:** active app
+- **Right:** clock, next calendar event, now playing
+
+Needs `sketchybar`, `ical-buddy`, `nowplaying-cli` and Hack Nerd Font (all in the Brewfile).
 
 ---
 
@@ -137,11 +179,28 @@ Each project should have its own `.eslintrc` / `stylelint.config.js` / `.prettie
 3. Press `C-s I` in tmux to install plugins
 4. Run `:Lazy sync` in nvim to verify plugins
 5. Install Python debugger when ready: `pip install debugpy`
+6. If `~/.gitconfig` already exists as a real file, move it aside before stowing: stow won't link over it
+7. Import the Rectangle and Alfred files by hand (they aren't stowed, see macOS Apps)
 
 ---
 
 ## Keyboards
-Custom QMK configs for DZ60 and Agar boards.
+Custom QMK configs for the BunnyCorne and Agar boards.
+
+### BunnyCorne (Corne rev4.1, split 3x6 + thumbs)
+Four layers: **0** base, **1** navigation (arrows, home/end, clipboard keys), **2** F-keys, symbols and RGB, **3** numpad.
+- Right thumb key (tap dance): **hold** = Hyper (Ctrl+Shift+Alt+Cmd), **double-tap** = toggle the nav layer
+- Left thumb key: double-tap returns to layer 0
+- Media keys (mute, volume, play/pause) sit in the center columns
+- Files: `keymap.c`, `config.h`, `rules.mk`, a Configurator export, SVG/PDF renders and a prebuilt `.uf2`
+
+### Agar (KBDfans)
+Layout JSON plus PNG renders of both layers.
+
+---
+
+## Homelab (coruscant)
+`hlmini/` holds shell config for the `coruscant` server. It is **not stowed**: copy `zshrc-coruscant` to `~/.zshrc` and `zshenv-coruscant` to `~/.zshenv` on the server. It's a lightweight setup: history options, zsh-syntax-highlighting and fzf (loaded from their apt install paths), a few `ls`/`grep` aliases, `nano` as editor.
 
 ---
 

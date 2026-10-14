@@ -37,9 +37,8 @@ sketchybar --bar height=28 \
 # --- Left: active app ---
 source "$ITEM_DIR/front_app.sh"
 
-# --- Right: clock, next todoist task, next calendar event, now playing ---
+# --- Right: clock, next calendar event, now playing ---
 source "$ITEM_DIR/clock.sh"
-source "$ITEM_DIR/todoist.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/nowplaying.sh"
 
