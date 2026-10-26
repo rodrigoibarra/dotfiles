@@ -94,7 +94,41 @@ local servers = {
 	astro = {
 		cmd = { "astro-ls", "--stdio" },
 		filetypes = { "astro" },
-		root_markers = { "astro.config.mjs", "astro.config.ts", "package.json", ".git" },
+		root_markers = { "astro.config.mjs", "astro.config.ts", "astro.config.js", "package.json", ".git" },
+		init_options = { typescript = {} },
+		before_init = function(_, config)
+			local function valid(dir)
+				return vim.uv.fs_stat(dir .. "/tsserverlibrary.js") and dir or nil
+			end
+
+			local tsdk
+			if config.root_dir then
+				for parent in vim.fs.parents(config.root_dir .. "/_") do
+					tsdk = valid(parent .. "/node_modules/typescript/lib")
+					if tsdk then
+						break
+					end
+				end
+			end
+			if not tsdk and vim.fn.executable("mise") == 1 then
+				-- TypeScript pinned in mise.toml (npm:typescript, 6.x)
+				local out = vim.fn.systemlist({ "mise", "where", "npm:typescript" })
+				if vim.v.shell_error == 0 and out[1] then
+					tsdk = valid(out[1] .. "/lib/node_modules/typescript/lib")
+						or valid(out[1] .. "/node_modules/typescript/lib")
+				end
+			end
+			if not tsdk then
+				local out = vim.fn.systemlist({ "npm", "root", "-g" })
+				if vim.v.shell_error == 0 and out[1] then
+					tsdk = valid(out[1] .. "/typescript/lib")
+				end
+			end
+
+			config.init_options = config.init_options or {}
+			config.init_options.typescript = config.init_options.typescript or {}
+			config.init_options.typescript.tsdk = tsdk or ""
+		end,
 	},
 
 	volar = {

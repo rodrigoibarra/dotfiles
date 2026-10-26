@@ -14,6 +14,8 @@ git clone git@github.com:rodrigoibarra/dotfiles.git ~/dotfiles
 bash ~/dotfiles/setup.sh
 ```
 
+`setup.sh` installs Xcode CLI tools and Homebrew, clones this repo, runs `brew bundle` (apps and CLI tools), stows the packages, installs [mise](https://mise.jdx.dev/) and everything in `mise.toml` (runtimes and dev tools), then the remaining npm globals, tmux plugins, the JS debug adapter and the Neovim plugins. It is safe to re-run.
+
 ---
 
 ## Stack
@@ -23,6 +25,21 @@ bash ~/dotfiles/setup.sh
 - **[Starship](https://starship.rs/)** — minimal prompt (current dir, git branch/status, command duration)
 - **[zoxide](https://github.com/ajeetdsouza/zoxide)** — replaces `cd`
 - **[fzf](https://github.com/junegunn/fzf)** — fuzzy finder (`Ctrl-T` files, `Ctrl-F` directories, `Ctrl-R` history)
+
+### Runtimes & tools ([mise](https://mise.jdx.dev/))
+Homebrew installs apps and CLI tools (`Brewfile`). mise installs runtimes and version-pinned dev tools (`mise.toml` in the repo root):
+
+| Tool | Notes |
+|------|-------|
+| `node` (lts), `go`, `rust`, `pnpm` | language runtimes and package manager |
+| `npm:typescript` (6.x) | pinned below 7: TS 7 dropped `tsserverlibrary.js`, which `astro-ls` needs |
+| `npm:css-variable-lsp` | CSS variables LSP for Neovim |
+| `delta` (`cargo:git-delta`) | built from source: the prebuilt aqua binary has no Intel macOS build |
+| `difftastic` | prebuilt binary, provides `difft` |
+
+- `mise install` (from `~/dotfiles`) installs everything in `mise.toml`; run `mise trust` once first
+- `mise run bootstrap` runs `brew bundle` and stows all packages
+- `.zshrc` activates mise with `eval "$(mise activate zsh)"`
 
 ### Terminal & Multiplexer
 - **[Ghostty](https://ghostty.org/)** — terminal emulator
@@ -120,7 +137,7 @@ Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11
 | Go | `gopls` |
 | Astro | `@astrojs/language-server` (npm) |
 | Emmet | `@olrtg/emmet-language-server` (npm) |
-| CSS variables (css, scss, less, astro) | `css-variable-lsp` (npm) |
+| CSS variables (css, scss, less, astro) | `css-variable-lsp` (mise) |
 
 #### Per-project linting & formatting
 Linting and formatting are configured per project. No global formatters enforced.
@@ -152,8 +169,8 @@ Each project should have its own `.eslintrc` / `stylelint.config.js` / `.prettie
 | `gh` | GitHub CLI |
 | `act` | run GitHub Actions locally |
 | `jq` / `yq` | JSON/YAML processing |
-| `delta` | git pager: side-by-side diffs, Catppuccin theme (installed with `cargo install git-delta`) |
-| `difft` | structural diff, alternate pager in lazygit (installed with `cargo install difftastic`) |
+| `delta` | git pager: side-by-side diffs, Catppuccin theme (installed with mise) |
+| `difft` | structural diff, alternate pager in lazygit (installed with mise) |
 | `ical-buddy` | calendar CLI (feeds SketchyBar) |
 | `nowplaying-cli` | now-playing info (feeds SketchyBar) |
 

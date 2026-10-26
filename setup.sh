@@ -88,18 +88,38 @@ for pkg in $STOW_PACKAGES; do
   fi
 done
 
-# ── 6. npm globals ────────────────────────────────────────────────────────
+# ── 6. mise (runtimes & tools) ────────────────────────────────────────────
+# node, go, rust, pnpm, typescript, css-variable-lsp, delta, difftastic: see mise.toml
+section "mise"
+export PATH="$HOME/.local/bin:$PATH"
+if command -v mise &>/dev/null; then
+  success "mise already installed"
+else
+  info "Installing mise..."
+  curl -fsSL https://mise.run | sh
+  success "mise installed"
+fi
+
+info "Installing tools from mise.toml..."
+mise trust "$DOTFILES/mise.toml"
+# MISE_YES answers mise's confirmation prompts (e.g. low-download npm packages)
+MISE_YES=1 mise install
+# shims put mise-managed tools on PATH for the rest of this script
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+success "mise tools installed"
+
+# ── 7. npm globals ────────────────────────────────────────────────────────
+# node comes from mise (user-owned), so no sudo. typescript and
+# css-variable-lsp are managed in mise.toml, not here.
 section "npm globals"
 npm_globals=(
   "@astrojs/language-server"
   "@olrtg/emmet-language-server"
   "eslint_d"
   "eslint"
-  "typescript"
   "stylelint"
   "prettier-plugin-astro"
   "sfw"
-  "css-variable-lsp"
 )
 
 for pkg in "${npm_globals[@]}"; do
@@ -107,42 +127,12 @@ for pkg in "${npm_globals[@]}"; do
     success "$pkg already installed"
   else
     info "Installing $pkg..."
-    sudo npm install -g "$pkg"
+    npm install -g "$pkg"
     success "$pkg installed"
   fi
 done
 
-# ── 6b. Rust toolchain & cargo tools ──────────────────────────────────────
-# delta (git pager) and difftastic (lazygit alt diff) come from cargo, not brew.
-section "Rust & cargo tools"
-export PATH="$HOME/.cargo/bin:$PATH"
-if command -v rustup &>/dev/null; then
-  success "rustup already installed"
-else
-  info "Installing rustup..."
-  # --no-modify-path: PATH for ~/.cargo/bin is managed in zshrc/.zshrc
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-  success "rustup installed"
-fi
-
-# "crate:binary" pairs
-cargo_tools=(
-  "git-delta:delta"
-  "difftastic:difft"
-)
-for entry in "${cargo_tools[@]}"; do
-  crate="${entry%%:*}"
-  bin="${entry##*:}"
-  if command -v "$bin" &>/dev/null; then
-    success "$bin already installed"
-  else
-    info "Installing $crate (cargo)..."
-    cargo install --locked "$crate"
-    success "$crate installed"
-  fi
-done
-
-# ── 7. Zsh as default shell ───────────────────────────────────────────────
+# ── 8. Zsh as default shell ───────────────────────────────────────────────
 section "Default shell"
 ZSH_PATH="$(brew --prefix)/bin/zsh"
 if [ "$SHELL" = "$ZSH_PATH" ]; then
@@ -156,7 +146,7 @@ else
   success "zsh set as default shell"
 fi
 
-# ── 8. tmux plugins ───────────────────────────────────────────────────────
+# ── 9. tmux plugins ───────────────────────────────────────────────────────
 section "tmux plugins"
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [ -d "$TPM_DIR" ]; then
@@ -171,7 +161,7 @@ info "Installing tmux plugins..."
 "$TPM_DIR/bin/install_plugins"
 success "tmux plugins installed"
 
-# ── 9. vscode-js-debug (DAP adapter) ─────────────────────────────────────
+# ── 10. vscode-js-debug (DAP adapter) ─────────────────────────────────────
 section "DAP adapter (vscode-js-debug)"
 JS_DEBUG_PATH="$HOME/.local/share/nvim/dap/vscode-js-debug"
 if [ -d "$JS_DEBUG_PATH" ]; then
@@ -188,7 +178,7 @@ else
   success "vscode-js-debug installed"
 fi
 
-# ── 10. Neovim first launch ───────────────────────────────────────────────
+# ── 11. Neovim first launch ───────────────────────────────────────────────
 section "Neovim plugins"
 info "Bootstrapping lazy.nvim and installing plugins..."
 nvim --headless "+Lazy! sync" +qa 2>/dev/null || true
