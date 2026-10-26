@@ -27,7 +27,6 @@ brew "act"               # run GitHub Actions locally
 brew "bat"
 brew "bat-extras"
 brew "eza"
-brew "fcp"
 brew "fd"
 brew "fzf"
 brew "ripgrep"

@@ -1,38 +1,33 @@
 # ── Path ──────────────────────────────────────────────────────────────────
-export PATH="/usr/local/bin:$HOME/.bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/opt/tree-sitter/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 # ── mise ──────────────────────────────────────────────────────────────────
 eval "$(mise activate zsh)"
 
-# ── Terminal ──────────────────────────────────────────────────────────────
-export TERM=tmux-256color
-stty -ixon
-
 # ── History ───────────────────────────────────────────────────────────────
 HISTFILE=$HOME/.zhistory
 SAVEHIST=10000
-HISTSIZE=9999
+HISTSIZE=50000
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+# ── Terminal ──────────────────────────────────────────────────────────────
+stty -ixon
+
 # ── Completion ────────────────────────────────────────────────────────────
+fpath=(${HOMEBREW_PREFIX:-/usr/local}/share/zsh-completions $fpath)
 autoload -Uz compinit && compinit
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
-
-# ── Plugins ───────────────────────────────────────────────────────────────
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ── Aliases ───────────────────────────────────────────────────────────────
 alias reload-zsh="source ~/.zshrc"
@@ -107,5 +102,9 @@ eval "$(starship init zsh)"
 
 # ── Glow ──────────────────────────────────────────────────────────────
 alias gl="glow"
+
+# ── Plugins ───────────────────────────────────────────────────────────────
+source ${HOMEBREW_PREFIX:-/usr/local}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOMEBREW_PREFIX:-/usr/local}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 

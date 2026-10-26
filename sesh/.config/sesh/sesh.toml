@@ -9,3 +9,7 @@ startup_command = "nvim"
 [[session]]
 name = "dotfiles"
 path = "~/dotfiles"
+
+[[session]]
+name = "Blog"
+path = "~/Documents/Dev/boneezy.com"
