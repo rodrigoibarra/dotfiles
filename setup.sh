@@ -11,7 +11,7 @@ set -e
 
 DOTFILES="$HOME/dotfiles"
 REPO="git@github.com:rodrigoibarra/dotfiles.git"
-STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar mise"
+STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar mise sesh"
 
 # ── Colors ────────────────────────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -66,10 +66,13 @@ cd "$DOTFILES"
 
 # ── 4. Brew bundle ────────────────────────────────────────────────────────
 section "Homebrew packages"
-info "Trusting taps..."
-brew trust jesseduffield/lazydocker 2>/dev/null || true
-brew trust jesseduffield/lazygit 2>/dev/null || true
-brew trust felixkratz/formulae 2>/dev/null || true
+# Homebrew ignores formulae from untrusted taps, so tap, then trust, before
+# `brew bundle`. Only taps whose formulae the Brewfile installs are listed.
+info "Tapping and trusting taps..."
+for tap in jesseduffield/lazydocker jesseduffield/lazygit felixkratz/formulae mas-cli/tap; do
+  brew tap "$tap" 2>/dev/null || true
+  brew trust "$tap" 2>/dev/null || true
+done
 
 info "Running brew bundle..."
 brew bundle --file="$DOTFILES/Brewfile"

@@ -2,7 +2,6 @@ tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "felixkratz/formulae"
 tap "mas-cli/tap"
-tap "shinokada/consize"
 
 # ── Shell ─────────────────────────────────────────────────────────────────
 brew "zsh"
@@ -85,6 +84,7 @@ brew "stylua"            # Lua formatter
 
 # ── Terminal & multiplexer ────────────────────────────────────────────────
 brew "tmux"
+brew "sesh"
 
 # ── Hardware ──────────────────────────────────────────────────────────────
 brew "dfu-util"

@@ -1,0 +1,11 @@
+# ── sesh.toml ─────────────────────────────────────────────────────────────
+# Session manager config (https://github.com/joshmedeski/sesh).
+# Picker: C-s T in tmux (see tmux/.tmux.conf). zoxide directories are listed
+# automatically; sessions below are always available.
+
+[default_session]
+startup_command = "nvim"
+
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"

@@ -8,5 +8,5 @@
 description = "Install Homebrew packages and stow the dotfiles"
 run = [
   "brew bundle --file=~/dotfiles/Brewfile --no-upgrade",
-  "cd ~/dotfiles && stow nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar mise",
+  "cd ~/dotfiles && stow nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar mise sesh",
 ]

@@ -56,6 +56,8 @@ Homebrew installs apps and CLI tools (`Brewfile`). mise installs runtimes and ve
 | `C-hjkl` | navigate panes / nvim splits |
 | `S-Left/Right` | previous/next window |
 | `C-s x` | close pane |
+| `C-s T` | session picker ([sesh](https://github.com/joshmedeski/sesh): tmux sessions, configured projects, zoxide dirs) |
+| `C-s S` | switch to last session (sesh) |
 
 ### Neovim
 Built on [lazy.nvim](https://github.com/folke/lazy.nvim) with native Neovim 0.11+ LSP.
