@@ -9,6 +9,9 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
+# ── mise ──────────────────────────────────────────────────────────────────
+eval "$(mise activate zsh)"
+
 # ── Terminal ──────────────────────────────────────────────────────────────
 export TERM=tmux-256color
 stty -ixon

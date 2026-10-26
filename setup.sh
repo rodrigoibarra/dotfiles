@@ -11,7 +11,7 @@ set -e
 
 DOTFILES="$HOME/dotfiles"
 REPO="git@github.com:rodrigoibarra/dotfiles.git"
-STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar"
+STOW_PACKAGES="nvim tmux zshrc bat gh ghostty starship glow git lazygit sketchybar mise"
 
 # ── Colors ────────────────────────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -89,7 +89,8 @@ for pkg in $STOW_PACKAGES; do
 done
 
 # ── 6. mise (runtimes & tools) ────────────────────────────────────────────
-# node, go, rust, pnpm, typescript, css-variable-lsp, delta, difftastic: see mise.toml
+# node, go, rust, pnpm, typescript, css-variable-lsp, delta, difftastic:
+# declared in mise/.config/mise/config.toml (stowed above to ~/.config/mise/)
 section "mise"
 export PATH="$HOME/.local/bin:$PATH"
 if command -v mise &>/dev/null; then
@@ -100,7 +101,7 @@ else
   success "mise installed"
 fi
 
-info "Installing tools from mise.toml..."
+info "Installing tools from the global mise config..."
 mise trust "$DOTFILES/mise.toml"
 # MISE_YES answers mise's confirmation prompts (e.g. low-download npm packages)
 MISE_YES=1 mise install

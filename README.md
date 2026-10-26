@@ -14,7 +14,7 @@ git clone git@github.com:rodrigoibarra/dotfiles.git ~/dotfiles
 bash ~/dotfiles/setup.sh
 ```
 
-`setup.sh` installs Xcode CLI tools and Homebrew, clones this repo, runs `brew bundle` (apps and CLI tools), stows the packages, installs [mise](https://mise.jdx.dev/) and everything in `mise.toml` (runtimes and dev tools), then the remaining npm globals, tmux plugins, the JS debug adapter and the Neovim plugins. It is safe to re-run.
+`setup.sh` installs Xcode CLI tools and Homebrew, clones this repo, runs `brew bundle` (apps and CLI tools), stows the packages, installs [mise](https://mise.jdx.dev/) and its global tools (runtimes and dev tools), then the remaining npm globals, tmux plugins, the JS debug adapter and the Neovim plugins. It is safe to re-run.
 
 ---
 
@@ -27,7 +27,7 @@ bash ~/dotfiles/setup.sh
 - **[fzf](https://github.com/junegunn/fzf)** — fuzzy finder (`Ctrl-T` files, `Ctrl-F` directories, `Ctrl-R` history)
 
 ### Runtimes & tools ([mise](https://mise.jdx.dev/))
-Homebrew installs apps and CLI tools (`Brewfile`). mise installs runtimes and version-pinned dev tools (`mise.toml` in the repo root):
+Homebrew installs apps and CLI tools (`Brewfile`). mise installs runtimes and version-pinned dev tools. They are declared globally in `mise/.config/mise/config.toml` (stowed to `~/.config/mise/`), so they work in every directory:
 
 | Tool | Notes |
 |------|-------|
@@ -37,8 +37,8 @@ Homebrew installs apps and CLI tools (`Brewfile`). mise installs runtimes and ve
 | `delta` (`cargo:git-delta`) | built from source: the prebuilt aqua binary has no Intel macOS build |
 | `difftastic` | prebuilt binary, provides `difft` |
 
-- `mise install` (from `~/dotfiles`) installs everything in `mise.toml`; run `mise trust` once first
-- `mise run bootstrap` runs `brew bundle` and stows all packages
+- `mise install` installs everything in the global config
+- `mise run bootstrap` (from `~/dotfiles`, after `mise trust`) runs `brew bundle` and stows all packages; the task lives in the repo-root `mise.toml`
 - `.zshrc` activates mise with `eval "$(mise activate zsh)"`
 
 ### Terminal & Multiplexer

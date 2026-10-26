@@ -37,7 +37,7 @@ git:
   log:
     showGraph: always
   pagers:
-    - pager: delta --paging=never --width={{columnWidth}} --features="catppuccin-mocha lazygit"
+    - pager: delta --paging=never --features="catppuccin-mocha lazygit"
       colorArg: always
     - externalDiffCommand: difft --color=always
 

@@ -1,0 +1,17 @@
+# ── ~/.config/mise/config.toml (stowed from dotfiles/mise) ─────────────────
+# Global runtimes and dev tools: available in every directory, not just here.
+# Project-specific versions still override these via a project's own mise.toml.
+#
+#   mise install    # install everything below
+
+[tools]
+node = "lts"
+go = "latest"
+rust = "stable"
+pnpm = "latest"
+"npm:typescript" = "6"             # TS 7.x dropped tsserverlibrary.js, astro-ls needs <=6
+"npm:css-variable-lsp" = "latest"
+
+# git pager / diff tools
+"cargo:git-delta" = "latest"       # aqua build has no darwin/amd64 (Intel) binary, so compile
+difftastic = "latest"              # aqua prebuilt binary, installs `difft`
